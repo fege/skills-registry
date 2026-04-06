@@ -27,7 +27,7 @@
       "source": {
         "ref": "main",
         "repo": "jwforres/rfe-creator",
-        "source": "github"
+        "type": "github"
       },
       "strict": false,
       "version": "0.1.0"
@@ -50,7 +50,7 @@
       "source": {
         "ref": "main",
         "repo": "n1hility/assess-rfe",
-        "source": "github"
+        "type": "github"
       },
       "version": "1.0.0"
     }

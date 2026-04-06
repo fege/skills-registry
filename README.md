@@ -18,7 +18,7 @@ claude plugin marketplace add opendatahub-io/skills-registry
 Or install a specific plugin:
 
 ```bash
-/plugin install agent-eval-harness@opendatahub-skills
+/plugin install rfe-creator@opendatahub-skills
 ```
 
 ### Team Setup
@@ -33,7 +33,7 @@ Add to your project's `.claude/settings.json` to auto-enable for all developers:
     }
   },
   "enabledPlugins": {
-    "agent-eval-harness@opendatahub-skills": true
+    "rfe-creator@opendatahub-skills": true
   }
 }
 ```
@@ -49,8 +49,6 @@ Fetch `registry.yaml` directly and parse it — it contains all metadata includi
 | `registry.yaml` | Source of truth for all plugins and skills |
 | `.claude-plugin/marketplace.json` | Generated Claude Code marketplace manifest |
 | `catalog.md` | Auto-generated human-readable catalog |
-| `schema/registry.schema.json` | JSON Schema for validation |
-| `scripts/` | Sync, validation, and automation scripts |
 
 ## Available Plugins
 
