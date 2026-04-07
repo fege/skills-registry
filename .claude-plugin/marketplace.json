@@ -23,11 +23,11 @@
       ],
       "name": "rfe-creator",
       "repository": "https://github.com/jwforres/rfe-creator",
-      "skills": [".claude/skills"],
+      "skills": ["./.claude/skills"],
       "source": {
         "ref": "main",
         "repo": "jwforres/rfe-creator",
-        "type": "github"
+        "source": "github"
       },
       "strict": false,
       "version": "0.1.0"
@@ -50,7 +50,7 @@
       "source": {
         "ref": "main",
         "repo": "n1hility/assess-rfe",
-        "type": "github"
+        "source": "github"
       },
       "version": "1.0.0"
     }
