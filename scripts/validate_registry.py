@@ -102,7 +102,7 @@ def diff_plugins(registry: dict, base_ref: str) -> list[str]:
               file=sys.stderr)
         return [p["name"] for p in registry.get("plugins", [])]
 
-    base_registry = yaml.safe_load(result.stdout)
+    base_registry = yaml.safe_load(result.stdout) or {}
     base_names = {p["name"] for p in base_registry.get("plugins", [])}
     current_names = {p["name"] for p in registry.get("plugins", [])}
     new_names = sorted(current_names - base_names)

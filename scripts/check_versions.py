@@ -80,15 +80,16 @@ def main():
         current = plugin.get("version", "0.0.0")
         remote = fetch_remote_version(repo, source.get("ref", "main"))
 
+        name = plugin.get("name", "<unknown>")
         if remote is None:
-            print(f"  SKIP: {plugin['name']} (could not fetch remote version)")
+            print(f"  SKIP: {name} (could not fetch remote version)")
             continue
 
         if remote != current:
-            print(f"  UPDATE: {plugin['name']} {current} -> {remote}")
+            print(f"  UPDATE: {name} {current} -> {remote}")
             updates.append((plugin, remote))
         else:
-            print(f"  OK: {plugin['name']} {current}")
+            print(f"  OK: {name} {current}")
 
     if not updates:
         print("\nAll plugins up to date.")
