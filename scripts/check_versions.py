@@ -10,6 +10,7 @@ Usage:
 """
 
 import argparse
+import base64
 import json
 import subprocess
 import sys
@@ -31,19 +32,18 @@ def fetch_remote_version(repo: str, ref: str = "main") -> str | None:
     """Fetch version from remote plugin.json via GitHub API."""
     result = subprocess.run(
         ["gh", "api",
-         f"repos/{repo}/contents/.claude-plugin/plugin.json",
+         f"repos/{repo}/contents/.claude-plugin/plugin.json?ref={ref}",
          "--jq", ".content"],
         capture_output=True, text=True,
     )
     if result.returncode != 0:
         return None
 
-    import base64
     try:
         content = base64.b64decode(result.stdout.strip()).decode()
         data = json.loads(content)
         return data.get("version")
-    except Exception:
+    except (json.JSONDecodeError, ValueError, UnicodeDecodeError):
         return None
 
 

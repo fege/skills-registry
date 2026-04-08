@@ -31,7 +31,8 @@ def generate_catalog(registry: dict) -> str:
     lines.append("")
     lines.append("```bash")
     lines.append("# Add this marketplace to Claude Code")
-    lines.append(f"claude plugin marketplace add opendatahub-io/skills-registry")
+    owner = registry["owner"]["name"]
+    lines.append(f"claude plugin marketplace add {owner}/skills-registry")
     lines.append("")
     lines.append("# Browse available plugins")
     lines.append("/plugin")

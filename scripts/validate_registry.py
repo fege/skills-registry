@@ -92,7 +92,7 @@ def check_sources(registry: dict) -> list[str]:
 def diff_plugins(registry: dict, base_ref: str) -> list[str]:
     """Find plugin names added since base_ref."""
     result = subprocess.run(
-        ["git", "show", f"{base_ref}:registry.yaml"],
+        ["git", "show", "--", f"{base_ref}:registry.yaml"],
         capture_output=True, text=True,
     )
     if result.returncode != 0:
@@ -243,7 +243,7 @@ def main():
                 for e in errors:
                     print(e)
             else:
-                print(f"    OK")
+                print("    OK")
 
     # Summary
     print()
