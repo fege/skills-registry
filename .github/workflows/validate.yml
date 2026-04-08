@@ -1,0 +1,44 @@
+name: Validate Registry
+on:
+  pull_request:
+    paths:
+      - 'registry.yaml'
+      - '.claude-plugin/**'
+      - 'schema/**'
+      - 'scripts/**'
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Validate registry schema
+        run: python3 scripts/validate_registry.py
+
+      - name: Sync marketplace.json
+        run: python3 scripts/sync_marketplace.py
+
+      - name: Check marketplace.json is in sync
+        run: |
+          git diff --exit-code .claude-plugin/marketplace.json || \
+            (echo "ERROR: marketplace.json is out of sync with registry.yaml." && \
+             echo "Run: python3 scripts/sync_marketplace.py" && exit 1)
+
+      - name: Generate catalog
+        run: python3 scripts/generate_catalog.py
+
+      - name: Check catalog.md is in sync
+        run: |
+          git diff --exit-code catalog.md || \
+            (echo "ERROR: catalog.md is out of sync with registry.yaml." && \
+             echo "Run: python3 scripts/generate_catalog.py" && exit 1)
