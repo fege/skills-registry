@@ -309,3 +309,51 @@ plugins:
       claude-code:
         install: "/plugin install odh-ai-helpers@opendatahub-skills"
     depends_on: []
+
+  - name: agent-eval-harness
+    description: >
+      Generic agentic evaluation for skills and agents.
+      Provides end-to-end skills to analyze, test, score, review, and
+      iteratively improve agent skills with MLflow support for experiment tracking,
+      tracing, and reporting. Schema-driven evaluation via eval.yaml with
+      support for inline, LLM-based, and external judges.
+    version: "0.1.0"
+    category: evaluation
+    tags: [evaluation, testing, skills, agents, mlflow, optimization, scoring]
+    author:
+      name: Antonin Stefanutti
+    source:
+      type: github
+      repo: opendatahub-io/agent-eval-harness
+      ref: main
+    homepage: https://github.com/opendatahub-io/agent-eval-harness
+    repository: https://github.com/opendatahub-io/agent-eval-harness
+    skills:
+      - name: eval-setup
+        description: One-time environment setup for evaluation (dependencies, MLflow, API keys)
+        user-invocable: true
+      - name: eval-analyze
+        description: Deep-read a target skill and generate eval.yaml configuration with dataset schemas and judges
+        user-invocable: true
+      - name: eval-dataset
+        description: Generate realistic test cases from eval.yaml schema (bootstrap, expand, from-traces)
+        user-invocable: true
+      - name: eval-run
+        description: Execute skill against test cases, collect artifacts, run judges, and detect regressions
+        user-invocable: true
+      - name: eval-review
+        description: Human-in-the-loop review of scores and outputs with qualitative feedback collection
+        user-invocable: true
+      - name: eval-mlflow
+        description: Bidirectional MLflow sync for results, datasets, and feedback
+        user-invocable: true
+      - name: eval-optimize
+        description: Automated improvement loop that identifies failures, edits SKILL.md, and re-runs with regression checks
+        user-invocable: true
+    harnesses:
+      claude-code:
+        install: "/plugin install agent-eval-harness@opendatahub-skills"
+    python:
+      package: agent-eval-harness
+      requires_python: ">=3.11"
+    depends_on: []

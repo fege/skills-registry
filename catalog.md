@@ -73,6 +73,28 @@ Tags: quality, testing, ci-cd, build-validation, analysis
 /plugin install quality-tooling@opendatahub-skills
 ```
 
+### agent-eval-harness
+
+Generic agentic evaluation for skills and agents. Provides end-to-end skills to analyze, test, score, review, and iteratively improve agent skills with MLflow support for experiment tracking, tracing, and reporting. Schema-driven evaluation via eval.yaml with support for inline, LLM-based, and external judges.
+
+v0.1.0 | [opendatahub-io/agent-eval-harness](https://github.com/opendatahub-io/agent-eval-harness)
+
+Tags: evaluation, testing, skills, agents, mlflow, optimization, scoring
+
+| Skill | Description |
+|-------|-------------|
+| `/eval-setup` | One-time environment setup for evaluation (dependencies, MLflow, API keys) |
+| `/eval-analyze` | Deep-read a target skill and generate eval.yaml configuration with dataset schemas and judges |
+| `/eval-dataset` | Generate realistic test cases from eval.yaml schema (bootstrap, expand, from-traces) |
+| `/eval-run` | Execute skill against test cases, collect artifacts, run judges, and detect regressions |
+| `/eval-review` | Human-in-the-loop review of scores and outputs with qualitative feedback collection |
+| `/eval-mlflow` | Bidirectional MLflow sync for results, datasets, and feedback |
+| `/eval-optimize` | Automated improvement loop that identifies failures, edits SKILL.md, and re-runs with regression checks |
+
+```bash
+/plugin install agent-eval-harness@opendatahub-skills
+```
+
 ## Security Review
 
 Security analysis, threat modeling, and compliance review
