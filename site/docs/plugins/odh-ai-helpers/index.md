@@ -73,6 +73,12 @@ with each stage producing JSON artifacts consumed by the next.
 |-------|-------------|
 | python-packaging-investigator | Investigates Python package repositories to analyze build systems, dependencies, and packaging complexity |
 
+## Installation
+
+```bash
+/plugin install odh-ai-helpers@opendatahub-skills
+```
+
 ## Architecture
 
 The plugin follows a modular architecture with three distinct skill families:
@@ -94,9 +100,3 @@ agent-driven semantic analysis for unclear classifications.
 jira-upload-chat-log, git-shallow-clone) that operate independently with no
 inter-skill dependencies. The adr-review skill uses six parallel reviewer
 sub-agents with human-in-the-loop correction before synthesis.
-
-## Installation
-
-```bash
-/plugin install odh-ai-helpers@opendatahub-skills
-```

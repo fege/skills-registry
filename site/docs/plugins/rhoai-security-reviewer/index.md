@@ -49,6 +49,12 @@ integration.
 | [`/strat-security-review`](strat-security-review.md) | Multi-reviewer consensus orchestrator for security review of STRAT documents. Extracts threat surfaces, spawns three independent security-reviewer instances, synthesizes findings with confidence levels, and produces a final verdict (PASS/CONCERNS/FAIL). | :material-check: |
 | [`/security-reviewer`](security-reviewer.md) | Individual security reviewer that assesses RHOAI strategy documents against 39 catalog patterns covering authentication, data protection, cryptographic compliance, network security, supply chain, and infrastructure. Uses a two-phase discovery-then-filter approach with severity classification. | :material-check: |
 
+## Installation
+
+```bash
+/plugin install rhoai-security-reviewer@opendatahub-skills
+```
+
 ## Architecture
 
 The plugin follows a two-skill architecture with a clear separation of concerns:
@@ -74,9 +80,3 @@ The Light tier includes a short-circuit: if the threat surface inventory is
 entirely empty, the orchestrator skips reviewer spawning and issues a direct
 PASS verdict. Intermediate files (threat surface, individual reviewer outputs)
 are preserved for auditability and calibration.
-
-## Installation
-
-```bash
-/plugin install rhoai-security-reviewer@opendatahub-skills
-```

@@ -42,6 +42,12 @@ be determined, items are flagged as uncertain rather than silently dropped.
 | [`/meeting-async-update-check`](meeting-async-update-check.md) | Check a shared update doc and identify attendees missing async updates before a status meeting | :material-check: |
 | [`/meeting-risk-agenda`](meeting-risk-agenda.md) | Analyze pre-meeting updates and generate a risk-focused agenda by identifying blocked and at-risk items | :material-check: |
 
+## Installation
+
+```bash
+/plugin install meeting-quality-skills@opendatahub-skills
+```
+
 ## Architecture
 
 The two skills operate independently but form a natural pre-meeting workflow:
@@ -50,9 +56,3 @@ meeting-risk-agenda to build a focused agenda from those updates. Both skills
 are purely prompt-driven with no external tool dependencies — they rely on
 the LLM's ability to parse unstructured document content and apply
 classification heuristics (name matching, risk-signal detection).
-
-## Installation
-
-```bash
-/plugin install meeting-quality-skills@opendatahub-skills
-```

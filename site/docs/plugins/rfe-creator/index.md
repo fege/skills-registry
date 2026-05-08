@@ -61,6 +61,12 @@ automatically on first use.
 | [`/scope-review`](scope-review.md) | Scope review skill | :material-check: |
 | [`/testability-review`](testability-review.md) | Testability review skill | :material-check: |
 
+## Installation
+
+```bash
+/plugin install rfe-creator@opendatahub-skills
+```
+
 ## Architecture
 
 Two skill families: RFE skills (rfe.*) for the requirements pipeline and
@@ -84,9 +90,3 @@ synchronization.
 Architecture context is fetched from opendatahub-io/architecture-context
 into .context/architecture-context/ and used by review and strategy skills
 to ground assessments in actual platform components and APIs.
-
-## Installation
-
-```bash
-/plugin install rfe-creator@opendatahub-skills
-```

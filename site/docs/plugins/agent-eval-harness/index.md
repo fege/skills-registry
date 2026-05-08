@@ -51,6 +51,12 @@ containerized execution.
 | [`/eval-mlflow`](eval-mlflow.md) | Bidirectional MLflow sync for results, datasets, and feedback | :material-check: |
 | [`/eval-optimize`](eval-optimize.md) | Automated improvement loop that identifies failures, edits SKILL.md, and re-runs with regression checks | :material-check: |
 
+## Installation
+
+```bash
+/plugin install agent-eval-harness@opendatahub-skills
+```
+
 ## Architecture
 
 Seven skills form a linear pipeline with feedback loops: setup (optional) ->
@@ -72,9 +78,3 @@ Scripts live alongside each skill and share the agent_eval Python package
 The data flow is: eval.yaml config -> workspace creation (isolated per run) ->
 skill execution via EvalRunner -> artifact collection -> judge scoring ->
 summary.yaml + HTML report.
-
-## Installation
-
-```bash
-/plugin install agent-eval-harness@opendatahub-skills
-```

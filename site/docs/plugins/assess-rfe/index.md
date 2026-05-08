@@ -51,6 +51,12 @@ than architecture prescription.
 | [`/assess-rfe`](assess-rfe.md) | Assess RFEs against quality criteria using a structured rubric | :material-check: |
 | [`/export-rubric`](export-rubric.md) | Export the assessment rubric | :material-check: |
 
+## Installation
+
+```bash
+/plugin install assess-rfe@opendatahub-skills
+```
+
 ## Architecture
 
 The plugin uses an orchestrator/agent pattern. The main assess-rfe skill acts
@@ -71,9 +77,3 @@ conversion, queue management, progress tracking, result parsing, CSV
 generation, and summary statistics). The coordinator never uses shell pipes
 or compound commands, relying instead on structured script output with
 key=value parsing.
-
-## Installation
-
-```bash
-/plugin install assess-rfe@opendatahub-skills
-```

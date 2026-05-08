@@ -55,6 +55,12 @@ to decide whether tests belong in the component repo or downstream E2E repo.
 | [`/test-plan-generate-test-file`](test-plan-generate-test-file.md) | Generate complete test file with all functions, quality scoring and auto-revision | :material-close: internal |
 | [`/test-plan-score-test-function`](test-plan-score-test-function.md) | Score generated test function code using 5-criteria quality rubric | :material-close: internal |
 
+## Installation
+
+```bash
+/plugin install test-plan@opendatahub-skills
+```
+
 ## Architecture
 
 The plugin is organized as an orchestrated pipeline of 19 skills, split into
@@ -85,9 +91,3 @@ Key architectural patterns:
 - MCP integration (Atlassian) for fetching Jira strategies
 - Persistent Playwright CDP browser for UI verification with screenshot capture
 - odh-test-context integration for repository-specific test conventions
-
-## Installation
-
-```bash
-/plugin install test-plan@opendatahub-skills
-```

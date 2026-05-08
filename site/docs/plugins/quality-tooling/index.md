@@ -45,6 +45,12 @@ rule files -- that are immediately actionable without manual post-processing.
 | [`/historical-bug-coverage`](historical-bug-coverage.md) | Analyzes historical blocking and critical bugs from Jira, determines what test coverage exists today with deep test inspection and confidence scoring, and generates standalone HTML reports | :material-check: |
 | [`/risk-assessment`](risk-assessment.md) | Analyze PR for risk, test coverage, architecture impact, and cross-repo intelligence | :material-check: |
 
+## Installation
+
+```bash
+/plugin install quality-tooling@opendatahub-skills
+```
+
 ## Architecture
 
 Each skill operates independently as a standalone analysis pipeline invoked via
@@ -65,9 +71,3 @@ Go test), confidence scoring, and HTML report generation.
 Several skills share conceptual overlap (quality-repo-analysis and test-rules-generator
 both analyze test infrastructure) but operate at different abstraction levels --
 scoring vs. pattern extraction.
-
-## Installation
-
-```bash
-/plugin install quality-tooling@opendatahub-skills
-```

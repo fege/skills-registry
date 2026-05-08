@@ -281,13 +281,6 @@ def generate_plugin_page(plugin: dict, registry: dict, enrichment: dict | None,
             lines.append(f"| {aname} | {adesc} |")
         lines.append("")
 
-    # Architecture notes from enrichment (at the bottom, before install)
-    if enrichment and enrichment.get("architecture_notes"):
-        lines.append("## Architecture")
-        lines.append("")
-        lines.append(enrichment["architecture_notes"].strip())
-        lines.append("")
-
     # Install
     lines.append("## Installation")
     lines.append("")
@@ -295,6 +288,13 @@ def generate_plugin_page(plugin: dict, registry: dict, enrichment: dict | None,
     lines.append(f"/plugin install {name}@{registry_name}")
     lines.append("```")
     lines.append("")
+
+    # Architecture notes from enrichment (very bottom — deep-dive content)
+    if enrichment and enrichment.get("architecture_notes"):
+        lines.append("## Architecture")
+        lines.append("")
+        lines.append(enrichment["architecture_notes"].strip())
+        lines.append("")
 
     return "\n".join(lines)
 
