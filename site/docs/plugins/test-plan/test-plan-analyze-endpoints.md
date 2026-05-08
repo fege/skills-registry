@@ -7,7 +7,10 @@ title: test-plan-analyze-endpoints
 
 # test-plan-analyze-endpoints
 
-Extract scope and API endpoints
+Internal forked sub-analyzer. Extracts feature scope (in-scope, out-of-scope,
+test objectives) and identifies API endpoints, gRPC services, Python/Go methods,
+UI components, CLI commands, and configuration interfaces under test. Assigns
+priorities and reports gaps. Produces findings for Sections 1 and 4 of the test plan.
 
 **Plugin**: [test-plan](index.md) | **:material-close: Internal**
 

@@ -7,7 +7,11 @@ title: test-plan-analyze-risks
 
 # test-plan-analyze-risks
 
-Determine test levels, priorities, NFRs, and risks
+Internal forked sub-analyzer. Determines test levels (API integration, UI, security,
+performance), test types (positive, negative, boundary, regression), feature-specific
+priority definitions, non-functional requirement assessments (disconnected, upgrade,
+performance, RBAC), and risks with impact/probability/mitigation. Produces findings
+for Sections 2, 7, and 8.
 
 **Plugin**: [test-plan](index.md) | **:material-close: Internal**
 

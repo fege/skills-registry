@@ -14,10 +14,12 @@ oversized RFEs, and submission to Jira. Also provides strategy document skills
 (RHAISTRAT) for refining approved RFEs into implementation strategies with
 adversarial multi-reviewer validation.
 
-The plugin uses a shared artifact convention — all skills read from and write to
+The plugin uses a shared artifact convention -- all skills read from and write to
 an `artifacts/` directory with YAML frontmatter for structured metadata. Jira
 write operations use deterministic Python scripts rather than LLM tool-calling,
-while read operations support both Atlassian MCP and REST API fallback.
+while read operations support both Atlassian MCP and REST API fallback. A
+dependency on the `assess-rfe` plugin provides the scoring rubric, bootstrapped
+automatically on first use.
 
 
 !!! info "Plugin Details"
@@ -34,11 +36,23 @@ Two skill families: RFE skills (rfe.*) for the requirements pipeline and
 Strategy skills (strat.*) for implementation planning. A speedrun skill
 orchestrates the full end-to-end flow by invoking other skills.
 
-Review skills use a forked reviewer pattern — independent sub-agents
+Review skills use a forked reviewer pattern -- independent sub-agents
 (feasibility, testability, scope, architecture) run in isolated contexts
-and produce separate assessments. State persistence uses scripts/state.py
-for long-running operations, and scripts/frontmatter.py manages YAML
-frontmatter on all artifact files.
+and produce separate assessments that are synthesized into a consolidated
+review. The rfe.review skill is the central orchestrator: it launches
+parallel waves of fetch, assess, feasibility, review, and revise agents,
+polling for completion via scripts/check_review_progress.py.
+
+State persistence uses scripts/state.py for long-running operations across
+context compression boundaries, and scripts/frontmatter.py manages YAML
+frontmatter on all artifact files. The rfe.auto-fix skill wraps this into
+a pipeline state machine (scripts/pipeline_state.py) that handles batching,
+resumption, and multi-phase dispatch with launch_wave/wait-for-wave
+synchronization.
+
+Architecture context is fetched from opendatahub-io/architecture-context
+into .context/architecture-context/ and used by review and strategy skills
+to ground assessments in actual platform components and APIs.
 
 ## Pipeline
 

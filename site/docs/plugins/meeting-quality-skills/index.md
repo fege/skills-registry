@@ -7,9 +7,17 @@ title: meeting-quality-skills
 
 # meeting-quality-skills
 
-Skills for evaluating meeting quality and optimizing async collaboration.
-Analyzes meeting agendas for risk factors and checks whether meetings
-could be replaced with async updates.
+Pre-meeting skills for improving meeting quality by shifting recurring status
+meetings away from general reporting and toward exception-based discussion.
+The plugin provides two complementary skills: one checks a shared update
+document to identify attendees who have not provided async updates, and the
+other analyzes collected updates to generate a risk-focused agenda that
+prioritizes blockers and at-risk items.
+
+Both skills work with Google Docs or pasted text, and handle edge cases such
+as Jira-exported content (issue keys, dashboards, JQL output) by attempting
+to extract owners from fields like Assignee or Owner. When ownership cannot
+be determined, items are flagged as uncertain rather than silently dropped.
 
 
 !!! info "Plugin Details"
@@ -20,6 +28,15 @@ could be replaced with async updates.
     - **Category**: [Product Planning](../../categories/planning.md)
     - **Repository**: [ahinek/meeting-quality-skills](https://github.com/ahinek/meeting-quality-skills)
     - **Tags**: <span class="tag-pill">meeting</span> <span class="tag-pill">google-workspace</span> <span class="tag-pill">agenda</span> <span class="tag-pill">async-updates</span> <span class="tag-pill">productivity</span>
+
+## Architecture
+
+The two skills operate independently but form a natural pre-meeting workflow:
+first run meeting-async-update-check to ensure updates are in, then run
+meeting-risk-agenda to build a focused agenda from those updates. Both skills
+are purely prompt-driven with no external tool dependencies — they rely on
+the LLM's ability to parse unstructured document content and apply
+classification heuristics (name matching, risk-signal detection).
 
 ## Pipeline
 
