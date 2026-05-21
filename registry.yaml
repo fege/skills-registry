@@ -538,6 +538,7 @@ plugins:
       type: github
       repo: asanzgom/disconnected-readiness-scorer
       ref: main
+    strict: false
     skills_dir: skills
     homepage: https://github.com/asanzgom/disconnected-readiness-scorer
     repository: https://github.com/asanzgom/disconnected-readiness-scorer
