@@ -20,7 +20,7 @@ while read operations support both Atlassian MCP and REST API fallback. A
 dependency on the `assess-rfe` plugin provides the scoring rubric, bootstrapped
 automatically on first use.
 
-**Repository**: https://github.com/jwforres/rfe-creator
+**Repository**: https://github.com/opendatahub-io/rfe-creator
 
 ### Architecture
 

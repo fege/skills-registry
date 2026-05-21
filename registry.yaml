@@ -47,12 +47,12 @@ plugins:
       name: jwforres
     source:
       type: github
-      repo: jwforres/rfe-creator
+      repo: opendatahub-io/rfe-creator
       ref: main
     strict: false
     skills_dir: .claude/skills
-    homepage: https://github.com/jwforres/rfe-creator
-    repository: https://github.com/jwforres/rfe-creator
+    homepage: https://github.com/opendatahub-io/rfe-creator
+    repository: https://github.com/opendatahub-io/rfe-creator
     skills:
       - name: rfe.create
         description: Generate new RFEs from problem statements

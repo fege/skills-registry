@@ -233,7 +233,7 @@ Claude Code skills for creating, reviewing, and submitting RFEs to the RHAIRFE J
 
 **Requires:** `assess-rfe`
 
-v0.1.0 | [jwforres/rfe-creator](https://github.com/jwforres/rfe-creator)
+v0.1.0 | [opendatahub-io/rfe-creator](https://github.com/opendatahub-io/rfe-creator)
 
 Tags: rfe, jira, review, strategy, pipeline
 
