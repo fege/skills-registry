@@ -1956,3 +1956,17 @@ Build a focused agenda from our team's weekly updates
 ```
 
 ---
+
+## disconnected-readiness-scorer
+
+Score a repository's readiness for disconnected / air-gapped OpenShift deployments. Scans for image manifest completeness, digest enforcement, runtime egress, and Python dependency validation. Supports automatic detection of image management patterns (env var vs static CSV) and cross-references against the opendatahub-operator manifest.
+
+**Repository**: https://github.com/asanzgom/disconnected-readiness-scorer
+
+### Skills
+
+#### /disconnected-score
+
+Score a repository's readiness for disconnected / air-gapped OpenShift deployments
+
+---

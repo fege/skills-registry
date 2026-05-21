@@ -148,10 +148,14 @@ nav:
       - plugins/meeting-quality-skills/index.md
       - meeting-async-update-check: plugins/meeting-quality-skills/meeting-async-update-check.md
       - meeting-risk-agenda: plugins/meeting-quality-skills/meeting-risk-agenda.md
+    - disconnected-readiness-scorer:
+      - plugins/disconnected-readiness-scorer/index.md
+      - disconnected-score: plugins/disconnected-readiness-scorer/disconnected-score.md
   - Categories:
     - categories/index.md
     - Evaluation & Testing: categories/evaluation.md
     - Documentation: categories/documentation.md
+    - DevOps & CI/CD: categories/devops.md
     - Security Review: categories/security.md
     - Development Tools: categories/development-tools.md
     - Product Planning: categories/planning.md

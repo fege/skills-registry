@@ -7,7 +7,7 @@ title: Plugins
 
 # Plugins
 
-10 plugins registered in the marketplace.
+11 plugins registered in the marketplace.
 
 | Plugin | Category | Skills | Version |
 |--------|----------|--------|---------|
@@ -21,3 +21,4 @@ title: Plugins
 | [knowledge-skills](knowledge-skills/index.md) | Documentation | 1 | v0.1.0 |
 | [autofix-skills](autofix-skills/index.md) | Development Tools | 4 | v0.1.0 |
 | [meeting-quality-skills](meeting-quality-skills/index.md) | Product Planning | 2 | v0.1.0 |
+| [disconnected-readiness-scorer](disconnected-readiness-scorer/index.md) | DevOps & CI/CD | 1 | v0.1.0 |

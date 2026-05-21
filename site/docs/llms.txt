@@ -14,6 +14,7 @@
 - [knowledge-skills](https://opendatahub-io.github.io/skills-registry/plugins/knowledge-skills/): Autonomous knowledge management skills for keeping AI context files (CLAUDE.md, AGENTS.md) up to date. Scans merged PRs, extracts relevant knowledge using parallel agents, and proposes updates as a git-apply-able patch for human review. Supports GitHub and GitLab.
 - [autofix-skills](https://opendatahub-io.github.io/skills-registry/plugins/autofix-skills/): Claude Code plugin for the Jira autofix pipeline. Provides orchestrator skills, agent prompt files, and deterministic Python scripts for automated bug fixing, CVE remediation, and ticket triage. Designed to run inside a Claude Code container as part of a CI pipeline.
 - [meeting-quality-skills](https://opendatahub-io.github.io/skills-registry/plugins/meeting-quality-skills/): Pre-meeting skills for improving meeting quality by checking shared update docs, identifying missing async updates, and helping organizers focus meetings on items that actually need discussion.
+- [disconnected-readiness-scorer](https://opendatahub-io.github.io/skills-registry/plugins/disconnected-readiness-scorer/): Score a repository's readiness for disconnected / air-gapped OpenShift deployments. Scans for image manifest completeness, digest enforcement, runtime egress, and Python dependency validation. Supports automatic detection of image management patterns (env var vs static CSV) and cross-references against the opendatahub-operator manifest.
 
 ## Skills
 
@@ -83,6 +84,7 @@
 - [autofix-research](https://opendatahub-io.github.io/skills-registry/plugins/autofix-skills/autofix-research/): Investigate spike tickets with no associated repository
 - [meeting-async-update-check](https://opendatahub-io.github.io/skills-registry/plugins/meeting-quality-skills/meeting-async-update-check/): Check a shared update doc and identify attendees missing async updates before a status meeting
 - [meeting-risk-agenda](https://opendatahub-io.github.io/skills-registry/plugins/meeting-quality-skills/meeting-risk-agenda/): Analyze pre-meeting updates and generate a risk-focused agenda by identifying blocked and at-risk items
+- [disconnected-score](https://opendatahub-io.github.io/skills-registry/plugins/disconnected-readiness-scorer/disconnected-score/): Score a repository's readiness for disconnected / air-gapped OpenShift deployments
 
 ## Optional
 

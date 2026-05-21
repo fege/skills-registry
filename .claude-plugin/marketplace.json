@@ -272,6 +272,35 @@
         "source": "github"
       },
       "version": "0.1.0"
+    },
+    {
+      "author": {
+        "name": "asanzgom"
+      },
+      "category": "devops",
+      "description": "Score a repository's readiness for disconnected / air-gapped OpenShift deployments. Scans for image manifest completeness, digest enforcement, runtime egress, and Python dependency validation. Supports automatic detection of image management patterns (env var vs static CSV) and cross-references against the opendatahub-operator manifest.\n",
+      "homepage": "https://github.com/asanzgom/disconnected-readiness-scorer",
+      "keywords": [
+        "disconnected",
+        "air-gap",
+        "openshift",
+        "image-mirroring",
+        "readiness",
+        "scoring"
+      ],
+      "license": "Apache-2.0",
+      "name": "disconnected-readiness-scorer",
+      "repository": "https://github.com/asanzgom/disconnected-readiness-scorer",
+      "skills": [
+        "./skills"
+      ],
+      "source": {
+        "ref": "f8fbba8c8400caeaa1dd9c7455478aad2bf05b4d",
+        "repo": "asanzgom/disconnected-readiness-scorer",
+        "source": "github"
+      },
+      "strict": false,
+      "version": "0.1.0"
     }
   ]
 }

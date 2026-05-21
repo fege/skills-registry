@@ -10,7 +10,7 @@ hide:
 
 # Skills and plugins for AI-assisted software engineering workflows
 
-10 plugins | 75 skills | 5 categories
+11 plugins | 76 skills | 6 categories
 
 [Getting Started](getting-started.md){ .md-button .md-button--primary }
 
@@ -100,12 +100,21 @@ hide:
 
     **2 skills** · Product Planning · v0.1.0
 
+-   **[disconnected-readiness-scorer](plugins/disconnected-readiness-scorer/index.md)**
+
+    ---
+
+    Score a repository's readiness for disconnected / air-gapped OpenShift deployments. Scans for image manifest complete...
+
+    **1 skills** · DevOps & CI/CD · v0.1.0
+
 </div>
 
 ## Categories
 
 - [Evaluation & Testing](categories/evaluation.md) — Skills for evaluating and testing AI agent skills (4 plugins)
 - [Documentation](categories/documentation.md) — Skills for generating and maintaining documentation (1 plugin)
+- [DevOps & CI/CD](categories/devops.md) — Skills for deployment, CI/CD, and infrastructure (1 plugin)
 - [Security Review](categories/security.md) — Security analysis, threat modeling, and compliance review (1 plugin)
 - [Development Tools](categories/development-tools.md) — Developer productivity tools for packaging, CI/CD debugging, and workflow automation (2 plugins)
 - [Product Planning](categories/planning.md) — Skills for requirements, RFEs, and product strategy (2 plugins)
