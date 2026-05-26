@@ -12,7 +12,9 @@ rubric (bootstrapping it if needed), asks 2-5 clarifying questions about
 customers, business justification, user problems, scope, and success
 criteria, then produces well-formed RFEs using a template. Each RFE
 describes WHAT and WHY (business needs), never HOW (implementation).
-Supports headless mode for batch/CI use.
+Supports headless mode for batch/CI use. Determines t-shirt size from
+acceptance criteria count using the Size Guide (S: 1-2, M: 3-5, L: 5-8,
+XL: 8+). Writes artifacts with YAML frontmatter via scripts/frontmatter.py.
 
 **Plugin**: [rfe-creator](index.md) | **:material-check: User-invocable**
 

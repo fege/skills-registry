@@ -12,7 +12,7 @@ parallel split agents that analyze the parent RFE and generate child
 RFEs, then invokes rfe.review on all children. Includes a self-correction
 loop (1 cycle max) that re-splits children still scoring poorly on
 right-sizing. Validates coverage to ensure all original scope items
-are represented in the children.
+are represented in the children. Archives the parent RFE after splitting.
 
 **Plugin**: [rfe-creator](index.md) | **:material-check: User-invocable**
 

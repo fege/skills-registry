@@ -12,7 +12,8 @@ revise + split), and submit. Supports three modes: batch YAML input
 (multiple ideas in a file), existing Jira keys, or a single free-text
 idea. In batch mode, pre-allocates all RFE IDs and launches parallel
 create agents. Orchestrates by invoking rfe.create, rfe.auto-fix, and
-rfe.submit as sub-skills.
+rfe.submit as sub-skills. Persists state between phases to survive
+context compression.
 
 **Plugin**: [rfe-creator](index.md) | **:material-check: User-invocable**
 

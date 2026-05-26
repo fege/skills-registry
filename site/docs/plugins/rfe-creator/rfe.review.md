@@ -14,7 +14,8 @@ parallel feasibility checks, synthesizes review files with scored
 criteria, auto-revises failing RFEs, and re-assesses (up to 2 cycles).
 The orchestrator never reads RFE content directly -- all content-heavy
 work is delegated to sub-agents (fetch, assess, feasibility, review,
-revise).
+revise). Uses scripts/check_review_progress.py for polling agent completion
+and scripts/filter_for_revision.py to determine which RFEs need revision.
 
 **Plugin**: [rfe-creator](index.md) | **:material-check: User-invocable**
 
