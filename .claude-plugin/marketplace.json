@@ -314,7 +314,7 @@
       "author": {
         "name": "IKRedHat"
       },
-      "category": "evaluation",
+      "category": "planning",
       "description": "Execute RHOAI SPIKE investigations with human-in-the-loop approval gates. 9-step lifecycle: intake, plan, Jira sync, AI research enrichment with hallucination detection, pytest test suites on OpenShift, rubric-based scoring with security gates, and RFE generation. Supports both runtime and protocol library evaluations.\n",
       "homepage": "https://github.com/IKRedHat/SPIKE-executor",
       "keywords": [

@@ -543,7 +543,7 @@ plugins:
       scoring with security gates, and RFE generation. Supports both runtime
       and protocol library evaluations.
     version: "0.2.0"
-    category: evaluation
+    category: planning
     tags: [spike, evaluation, jira, research, scoring, rfe, openshift, rhoai, feasibility]
     author:
       name: IKRedHat
