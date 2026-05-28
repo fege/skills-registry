@@ -192,11 +192,11 @@
       "name": "agent-eval-harness",
       "repository": "https://github.com/opendatahub-io/agent-eval-harness",
       "source": {
-        "ref": "main",
+        "ref": "v1.0.0",
         "repo": "opendatahub-io/agent-eval-harness",
         "source": "github"
       },
-      "version": "0.1.0"
+      "version": "1.0.0"
     },
     {
       "author": {
