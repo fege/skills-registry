@@ -41,7 +41,7 @@ plugins:
     description: What your plugin does (one paragraph)
     version: "1.0.0"
     category: evaluation          # Must match a key in 'categories'
-    scope: org                    # generic | org | team (default: org) — see "Plugin scope"
+    scope: sdlc                   # generic | sdlc | team (default: sdlc) — see "Plugin scope"
     tags: [tag1, tag2]
     author:
       name: your-name
@@ -79,10 +79,10 @@ The optional `scope` field declares how reusable the plugin is. It is catalog-on
 | Scope | Meaning | Example |
 |-------|---------|---------|
 | `generic` | Works anywhere, for any user or project | `agent-eval-harness` |
-| `org` (default) | RHOAI/ODH-wide, reusable across teams | `rfe-creator`, `assess-rfe` |
+| `sdlc` (default) | RHOAI/ODH-wide, reusable across teams | `rfe-creator`, `assess-rfe` |
 | `team` | Hardcoded to one team's setup (project keys, custom fields, labels) — not usable by others without modification | a team's JIRA-hygiene skill |
 
-**Prefer making skills reusable.** If a skill only hardcodes team-specific values (project key, team ID, component, custom-field IDs) out of convenience, consider externalizing those into config or env vars so it can be `org`-scoped and shared. Mark `scope: team` only when the skill genuinely serves a single team.
+**Prefer making skills reusable.** If a skill only hardcodes team-specific values (project key, team ID, component, custom-field IDs) out of convenience, consider externalizing those into config or env vars so it can be `sdlc`-scoped and shared. Mark `scope: team` only when the skill genuinely serves a single team.
 
 `generic` and `team` plugins are labeled on the site; `team` plugins are listed in a dedicated "Team-Specific" section rather than mixed into function categories. Always use a **function-based** `category` (what the skill does) regardless of scope — do not create team-named categories. Team identity belongs in `tags` and `scope`.
 
