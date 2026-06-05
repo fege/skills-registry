@@ -1,0 +1,277 @@
+direction: right
+
+*.style.border-radius: 8
+*.style.font-size: 13
+*.style.fill: "#f5f5f5"
+*.style.stroke: "#333333"
+
+# --- Entry ---
+
+args: |md
+  **/eval-check**
+
+  - --output \<path\>
+    (harness-report.md)
+  - --include-global
+    (scan ~/.claude/CLAUDE.md)
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+# --- Inventory ---
+
+inventory: |md
+  **Inventory**
+
+  - harness_inventory.py --root .
+  - count skills, commands, hooks
+  - approx word count per skill
+  - structural warnings
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+# --- Decision: single skill? ---
+
+single: |md
+  **Single skill?**
+| {
+  shape: diamond
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+# --- Scan fan-out (parallel scanners) ---
+
+scan: Scan Configuration {
+  style.fill: "#ececec"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+
+  scan-skills: |md
+    **Read All Skills**
+
+    - read each SKILL.md
+    - extract frontmatter
+      (name, description, tools)
+    - capture body rules
+    - note sub-skill refs
+  | {
+    shape: rectangle
+    style.fill: "#f5f5f5"
+    style.stroke: "#333333"
+    style.stroke-width: 2
+  }
+
+  scan-commands: |md
+    **Scan Commands**
+
+    - custom command files
+    - detect built-in shadows
+    - capture trigger surface
+  | {
+    shape: rectangle
+    style.fill: "#f5f5f5"
+    style.stroke: "#333333"
+    style.stroke-width: 2
+  }
+
+  scan-claudemd: |md
+    **Read CLAUDE.md**
+
+    - ./CLAUDE.md (project)
+    - ./.claude/CLAUDE.md
+    - ~/.claude/CLAUDE.md
+      (opt-in --include-global)
+    - extract always-on rules
+  | {
+    shape: rectangle
+    style.fill: "#f5f5f5"
+    style.stroke: "#333333"
+    style.stroke-width: 2
+  }
+
+  scan-hooks: |md
+    **Scan Hooks**
+
+    - hook configs
+    - deterministic blocks
+    - PreToolUse / on-stop
+  | {
+    shape: rectangle
+    style.fill: "#f5f5f5"
+    style.stroke: "#333333"
+    style.stroke-width: 2
+  }
+}
+
+# --- Cross-component analysis (LLM) ---
+
+analyze: |md
+  **Cross-Component Analysis**
+  LLM (reviewing model)
+
+  - content overlap (per pair)
+  - trigger overlap (descriptions)
+  - CLAUDE.md duplication
+  - type misclassification
+  - structural issues
+| {
+  shape: rectangle
+  style.fill: "#e8e8e8"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+  style.double-border: true
+}
+
+# --- Classify findings ---
+
+classify: |md
+  **Classify Findings**
+
+  - bucket by category
+  - estimate word cost of dup
+  - rank actionability
+  - flag merge / move / narrow
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+# --- Generate report (output) ---
+
+gen-report: |md
+  **Generate Report**
+
+  - resolve --output in root
+    (refuse .. traversal)
+  - Write tool, read-only scan
+  - findings + suggestions
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+# --- Present summary (output) ---
+
+output-summary: |md
+  **Present Summary**
+
+  - harness-report.md
+  - components + per-category counts
+  - top 3 suggestions
+  - next: /eval-analyze, /eval-run
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+# --- Downstream skills (external) ---
+
+eval-analyze: |md
+  **/eval-analyze**
+  --skill \<name\>
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+  style.stroke-dash: 3
+}
+
+eval-run: |md
+  **/eval-run**
+  --model \<model\>
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+  style.stroke-dash: 3
+}
+
+# --- Callout: findings categories ---
+
+findings-box: |md
+  Findings (5 categories)
+  - Content Overlap
+  - Trigger Overlap
+  - CLAUDE.md Duplication
+  - Type Misclassification
+  - Structural Issues
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#bbbbbb"
+  style.stroke-width: 1
+  style.font: mono
+  style.font-size: 10
+}
+
+# --- Callout: report structure ---
+
+report-box: |md
+  harness-report.md
+  # Harness Health Report
+  ## Inventory
+    Skills: N (~X words)
+    Commands / Hooks / CLAUDE.md
+  ## Findings (per category)
+  ## Suggestions (numbered)
+  ## Notes (approx, informational)
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#bbbbbb"
+  style.stroke-width: 1
+  style.font: mono
+  style.font-size: 10
+}
+
+# --- Flow ---
+
+args -> inventory
+inventory -> single
+
+single -> scan: "multiple"
+single -> gen-report: "single skill\n(skip analysis)" {
+  style.stroke-dash: 3
+}
+
+scan -> analyze
+analyze -> classify
+classify -> gen-report
+gen-report -> output-summary
+
+output-summary -> eval-analyze: "dive deeper" {
+  style.stroke-dash: 3
+}
+output-summary -> eval-run: "test impact" {
+  style.stroke-dash: 3
+}
+
+# --- Callout connectors ---
+
+classify -> findings-box: {
+  style.stroke: "#bbbbbb"
+  style.stroke-dash: 4
+  style.stroke-width: 1
+}
+gen-report -> report-box: {
+  style.stroke: "#bbbbbb"
+  style.stroke-dash: 4
+  style.stroke-width: 1
+}
