@@ -28,7 +28,7 @@ containerized execution.
 
 !!! info "Plugin Details"
 
-    - **Version**: 1.4.0
+    - **Version**: 1.9.1
     - **Author**: Antonin Stefanutti
     - **Scope**: Generic
     - **Category**: [Evaluation & Testing](../../categories/evaluation.md)
