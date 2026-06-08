@@ -5,14 +5,14 @@ direction: right
 *.style.fill: "#f5f5f5"
 *.style.stroke: "#333333"
 
-# --- Entry ---
+# --- Entry (Step 0) ---
 
 entry: |md
   **/eval-review**
 
-  - --run-id \<id\> (required)
-  - --config \<path\>
-  - --cases \<name ...\>
+  - --run-id <id>
+  - --config <path>
+  - --cases <name> ...
 | {
   shape: rectangle
   style.fill: "#f5f5f5"
@@ -20,138 +20,15 @@ entry: |md
   style.stroke-width: 2
 }
 
-# --- Step 0 + 1: Discover config + load results ---
+# --- Step 0: config discovery (decision) ---
 
-load-results: |md
-  **Discover Config + Load Results**
+discover: |md
+  **Discover Config**
 
-  - discover.py: find eval.yaml
-  - read skill field -> eval-name
-  - state.py read summary.yaml
-  - read eval.yaml (skill,
-    schema, judges)
-  - note deterministic vs LLM judges
-| {
-  shape: rectangle
-  style.fill: "#f5f5f5"
-  style.stroke: "#333333"
-  style.stroke-width: 2
-}
-
-# --- Step 2: Present overview ---
-
-overview: |md
-  **Present Overview**
-
-  - read analysis.md if present
-  - mention report.html link
-  - pass rates per judge
-  - passed-all vs failed counts
-  - pairwise win/loss/tie
-  - ask: all / failures / specific?
-| {
-  shape: rectangle
-  style.fill: "#f5f5f5"
-  style.stroke: "#333333"
-  style.stroke-width: 2
-}
-
-# --- Step 3: Walk cases (human-in-the-loop) ---
-
-walk-cases: |md
-  **Walk Through Cases**
-  human-in-the-loop (AskUserQuestion)
-
-  - judge scores + rationale + type
-  - pairwise winner per case
-  - summarize output files (no dump)
-  - ask feedback: judges miss anything?
-  - empty feedback = acceptable
-| {
-  shape: rectangle
-  style.fill: "#e8e8e8"
-  style.stroke: "#333333"
-  style.stroke-width: 2
-  style.double-border: true
-}
-
-# --- Step 4: Check transcripts (Agent, optional) ---
-
-transcripts: |md
-  **Check Transcripts**
-  Agent delegation (large logs)
-
-  - read execution_mode (case/batch)
-  - spawn Agent on stdout.log
-  - multiple approaches? unclear?
-  - wasted turns / roundabout paths?
-  - report process findings to user
-| {
-  shape: rectangle
-  style.fill: "#e8e8e8"
-  style.stroke: "#333333"
-  style.stroke-width: 2
-  style.double-border: true
-}
-
-# --- Step 5: Save feedback ---
-
-save-feedback: |md
-  **Save Feedback**
-
-  - Write review.yaml (NOT state.py)
-  - reviewer: human
-  - keys = case dir names
-  - empty value = acceptable
-  - read by /eval-optimize + /eval-mlflow
-| {
-  shape: rectangle
-  style.fill: "#f5f5f5"
-  style.stroke: "#333333"
-  style.stroke-width: 2
-}
-
-# --- Step 6: Analyze patterns (LLM) ---
-
-analyze: |md
-  **Analyze Patterns**
-  read review-results.md framework
-
-  - judge-human alignment
-  - systematic vs edge-case issues
-  - candidate new judges
-  - present "what I noticed..."
-| {
-  shape: rectangle
-  style.fill: "#e8e8e8"
-  style.stroke: "#333333"
-  style.stroke-width: 2
-  style.double-border: true
-}
-
-# --- Step 7: Propose changes (approval-gated, LLM) ---
-
-propose: |md
-  **Propose Changes**
-  approval-gated edits (LLM)
-
-  - find_skills.py locate SKILL.md
-  - map complaints to instructions
-  - show before/after diff per edit
-  - propose new judges (prefer builtins)
-  - require explicit approval
-| {
-  shape: rectangle
-  style.fill: "#e8e8e8"
-  style.stroke: "#333333"
-  style.stroke-width: 2
-  style.double-border: true
-}
-
-# --- Approval gate decision ---
-
-approved: |md
-  **Approved?**
+  - --config? use it
+  - else discover.py
+  - read skill field
+  - set <eval-name>
 | {
   shape: diamond
   style.fill: "#f5f5f5"
@@ -159,15 +36,144 @@ approved: |md
   style.stroke-width: 2
 }
 
-# --- Step 8: Apply + next steps ---
+# --- Step 1: load results ---
+
+load-results: |md
+  **Load Results**
+
+  - state.py read summary.yaml
+  - read eval.yaml (skill,
+    schema, judges)
+  - note judge_type per case
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+# --- Step 2: present overview (decision: which cases) ---
+
+overview: |md
+  **Present Overview**
+
+  - read analysis.md if present
+  - mention report.html
+  - pass rates per judge
+  - pairwise win/loss/tie
+  - which cases to review?
+| {
+  shape: diamond
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+# --- Step 3: walk cases ---
+
+walk-cases: |md
+  **Walk Through Cases**
+
+  - judge scores + rationale
+  - pairwise per-case result
+  - summarize output files
+  - ask: judges miss anything?
+  - collect feedback notes
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+# --- Step 4: check transcripts (LLM agent) ---
+
+transcripts: |md
+  **Check Transcripts**
+  delegate to Agent
+
+  - case vs batch stdout.log
+  - multiple approaches?
+  - wasted tools / turns?
+  - error recovery, sub-skills
+| {
+  shape: rectangle
+  style.fill: "#e8e8e8"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+  style.double-border: true
+}
+
+# --- Step 5: save feedback ---
+
+save-feedback: |md
+  **Save Feedback**
+
+  - Write review.yaml
+  - keys = case dir names
+  - empty = acceptable
+  - NOT state.py format
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+# --- Step 6: analyze patterns (LLM) ---
+
+analyze-patterns: |md
+  **Analyze Patterns**
+  review-results.md framework
+
+  - judge-human alignment
+  - systematic vs edge cases
+  - new judge candidates
+| {
+  shape: rectangle
+  style.fill: "#e8e8e8"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+  style.double-border: true
+}
+
+# --- Step 7: propose changes (decision: approval) ---
+
+propose: |md
+  **Propose Changes**
+
+  - locate SKILL.md (find_skills)
+  - before/after diffs
+  - propose new judges (builtins)
+  - user approves?
+| {
+  shape: diamond
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+apply-edits: |md
+  **Apply Edits**
+
+  - edit SKILL.md
+  - add judges to eval.yaml
+  - grounded in feedback
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+# --- Step 8: next steps (output) ---
 
 next-steps: |md
-  **Apply + Next Steps**
+  **Suggest Next Steps**
 
-  - Edit SKILL.md / eval.yaml
-  - /eval-run --baseline \<run-id\>
-  - /eval-optimize (automated)
-  - /eval-dataset --strategy expand
+  - /eval-run --baseline
+  - /eval-optimize
+  - /eval-dataset --expand
   - /eval-mlflow push-feedback
 | {
   shape: rectangle
@@ -176,11 +182,13 @@ next-steps: |md
   style.stroke-width: 2
 }
 
-# --- External skills (dashed) ---
+# --- External skills / services ---
 
 eval-optimize: |md
   **/eval-optimize**
-  automated refinement
+  automated loop
+
+  - reads review.yaml
 | {
   shape: rectangle
   style.fill: "#e8e8e8"
@@ -189,9 +197,11 @@ eval-optimize: |md
   style.stroke-dash: 3
 }
 
-eval-mlflow: |md
+eval-mlflow-skill: |md
   **/eval-mlflow**
-  push-feedback to traces
+  push-feedback
+
+  - feedback -> traces
 | {
   shape: rectangle
   style.fill: "#e8e8e8"
@@ -202,13 +212,32 @@ eval-mlflow: |md
 
 # --- Callouts ---
 
+review-yaml: |md
+  run_id: "<id>"
+  reviewed_cases: <count>
+  feedback_cases: <count>
+  reviewer: "human"
+  feedback:
+    case-001-...: "comment"
+    case-002-...: "comment"
+    case-003-...: ""  # empty = ok
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#bbbbbb"
+  style.stroke-width: 1
+  style.font: mono
+  style.font-size: 10
+}
+
 runs-tree: |md
-  runs/\<eval\>/\<id\>/
+  $AGENT_EVAL_RUNS_DIR/<eval-name>/<id>/
     summary.yaml
     analysis.md
     report.html
     run_result.json
-    cases/\<case\>/
+    review.yaml
+    cases/<case>/
       stdout.log
 | {
   shape: rectangle
@@ -219,62 +248,48 @@ runs-tree: |md
   style.font-size: 10
 }
 
-review-yaml: |md
-  run_id: "\<id\>"
-  reviewed_cases: 3
-  feedback_cases: 2
-  reviewer: "human"
-  feedback:
-    case-001-...: "comment"
-    case-002-...: "comment"
-    case-003-...: ""
-| {
-  shape: rectangle
-  style.fill: "#f5f5f5"
-  style.stroke: "#bbbbbb"
-  style.stroke-width: 1
-  style.font: mono
-  style.font-size: 10
-}
+# --- Flow ---
 
-# --- Forward flow ---
-
-entry -> load-results
+entry -> discover
+discover -> load-results: "config\nselected"
 load-results -> overview
-overview -> walk-cases
-walk-cases -> transcripts
+
+overview -> walk-cases: "all / failures\n/ specific"
+walk-cases -> transcripts: "if logs exist"
 transcripts -> save-feedback
-save-feedback -> analyze
-analyze -> propose
-propose -> approved
-approved -> next-steps: "yes"
+walk-cases -> save-feedback: "no logs"
 
-# --- External fan-out ---
+save-feedback -> analyze-patterns
+analyze-patterns -> propose
 
-next-steps -> eval-optimize: "automated"
-next-steps -> eval-mlflow: "push feedback"
+propose -> apply-edits: "approved"
+propose -> next-steps: "declined"
+apply-edits -> next-steps
 
-# --- Callout connectors ---
+# --- Back-edge (review more cases) ---
 
-load-results -> runs-tree: {
-  style.stroke: "#bbbbbb"
-  style.stroke-dash: 4
-  style.stroke-width: 1
+save-feedback -> overview: more cases {
+  style.stroke-dash: 3
 }
+
+# --- External connections ---
+
+next-steps -> eval-optimize: optional {
+  style.stroke-dash: 3
+}
+next-steps -> eval-mlflow-skill: optional {
+  style.stroke-dash: 3
+}
+
+# --- Callout connections ---
+
 save-feedback -> review-yaml: {
   style.stroke: "#bbbbbb"
   style.stroke-dash: 4
   style.stroke-width: 1
 }
-
-# --- Back-edges (loops) ---
-
-transcripts -> walk-cases: "more cases" {
-  style.stroke-dash: 3
-}
-approved -> propose: "revise" {
-  style.stroke-dash: 3
-}
-next-steps -> entry: "re-run + review" {
-  style.stroke-dash: 3
+load-results -> runs-tree: {
+  style.stroke: "#bbbbbb"
+  style.stroke-dash: 4
+  style.stroke-width: 1
 }

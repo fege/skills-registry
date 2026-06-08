@@ -22,13 +22,13 @@ args: |md
   style.stroke-width: 2
 }
 
-# --- Setup / config loading ---
+# --- Step 0-2: load config + verify ---
 
 config: |md
   **Load Config**
 
   - discover.py eval configs
-  - one auto, many ask user
+  - 1 auto, many ask user
   - read mlflow.experiment
   - dataset.path + schema, judges
 | {
@@ -52,7 +52,7 @@ verify: |md
   style.stroke-width: 2
 }
 
-# --- Decision: action dispatch ---
+# --- Dispatch on --action ---
 
 dispatch: |md
   **Action?**
@@ -63,13 +63,13 @@ dispatch: |md
   style.stroke-width: 2
 }
 
-# --- Sync dataset (LLM interprets schema, script syncs) ---
+# --- Operations (one per --action) ---
 
 sync: |md
   **Sync Dataset**
   two-phase (LLM + script)
 
-  - read dataset.schema + sample case
+  - read dataset.schema + sample
   - interpret -> schema_mapping.json
   - sync_dataset.py validates + preview
   - push records to MLflow dataset
@@ -77,11 +77,9 @@ sync: |md
   shape: rectangle
   style.fill: "#e8e8e8"
   style.stroke: "#333333"
-  style.stroke-width: 2
+  style.stroke-width: 3
   style.double-border: true
 }
-
-# --- Log results ---
 
 log: |md
   **Log Results**
@@ -99,8 +97,6 @@ log: |md
   style.stroke-width: 2
 }
 
-# --- Push feedback ---
-
 pushfb: |md
   **Push Feedback**
   attach_feedback.py --source all
@@ -117,8 +113,6 @@ pushfb: |md
   style.stroke-width: 2
 }
 
-# --- Pull feedback ---
-
 pullfb: |md
   **Pull Feedback**
   attach_feedback.py --action pull
@@ -134,7 +128,7 @@ pullfb: |md
   style.stroke-width: 2
 }
 
-# --- External service: MLflow server ---
+# --- External service ---
 
 mlflow: |md
   **MLflow Server**
@@ -168,7 +162,7 @@ report: |md
   style.stroke-width: 2
 }
 
-# --- Callout: schema_mapping.json ---
+# --- Callouts ---
 
 mapping-tree: |md
   tmp/schema_mapping.json
@@ -191,8 +185,6 @@ mapping-tree: |md
   style.font-size: 10
 }
 
-# --- Callout: review.yaml feedback section ---
-
 review-tree: |md
   review.yaml
     human_review:
@@ -210,20 +202,20 @@ review-tree: |md
   style.font-size: 10
 }
 
-# --- Flow: linear setup ---
+# --- Flow ---
 
 args -> config
 config -> verify
 verify -> dispatch
 
-# --- Fan-out to operations by action ---
+# --- Dispatch fan-out (one branch per --action) ---
 
-dispatch -> sync: "sync-dataset\n/ all"
-dispatch -> log: "log-results\n/ all"
-dispatch -> pushfb: "push-feedback\n/ all"
+dispatch -> sync: "sync-dataset / all"
+dispatch -> log: "log-results / all"
+dispatch -> pushfb: "push-feedback / all"
 dispatch -> pullfb: "pull-feedback"
 
-# --- Push directions to MLflow (dashed) ---
+# --- Operations push to MLflow ---
 
 sync -> mlflow: "push cases" {
   style.stroke-dash: 3
@@ -235,7 +227,7 @@ pushfb -> mlflow: "push feedback" {
   style.stroke-dash: 3
 }
 
-# --- Pull direction from MLflow (dashed fallback loop) ---
+# --- Pull annotations back from MLflow UI ---
 
 mlflow -> pullfb: "pull annotations" {
   style.stroke-dash: 3
@@ -248,7 +240,7 @@ log -> report
 pushfb -> report
 pullfb -> report
 
-# --- Callout connectors (light dashed) ---
+# --- Callout connections ---
 
 sync -> mapping-tree: {
   style.stroke: "#bbbbbb"

@@ -10,8 +10,7 @@ direction: right
 eval-setup: |md
   **/eval-setup**
 
-  configure MLflow, verify
-  deps + API keys (optional)
+  configure MLflow, verify deps + API keys (optional, one-time)
 | {
   shape: rectangle
   style.fill: "#f5f5f5"
@@ -19,13 +18,12 @@ eval-setup: |md
   style.stroke-width: 2
 }
 
-# --- Analyze ---
+# --- Authoring (LLM) ---
 
 eval-analyze: |md
   **/eval-analyze**
 
-  read skill, generate
-  eval.yaml + eval.md
+  read skill, generate eval.yaml + eval.md
 | {
   shape: rectangle
   style.fill: "#e8e8e8"
@@ -33,14 +31,11 @@ eval-analyze: |md
   style.stroke-width: 2
   style.double-border: true
 }
-
-# --- Dataset ---
 
 eval-dataset: |md
   **/eval-dataset**
 
-  generate test cases
-  matching the schema
+  generate test cases matching the schema
 | {
   shape: rectangle
   style.fill: "#e8e8e8"
@@ -49,13 +44,12 @@ eval-dataset: |md
   style.double-border: true
 }
 
-# --- Run (central hub) ---
+# --- Execution (central hub) ---
 
 eval-run: |md
   **/eval-run**
 
-  execute cases, score
-  judges, report results
+  execute cases, score judges, report results (central hub)
 | {
   shape: rectangle
   style.fill: "#e8e8e8"
@@ -64,13 +58,12 @@ eval-run: |md
   style.double-border: true
 }
 
-# --- Review (fan-out) ---
+# --- Improvement (LLM) ---
 
 eval-review: |md
   **/eval-review**
 
-  human-in-the-loop review,
-  propose SKILL.md edits
+  human-in-the-loop review, propose SKILL.md edits
 | {
   shape: rectangle
   style.fill: "#e8e8e8"
@@ -78,14 +71,11 @@ eval-review: |md
   style.stroke-width: 2
   style.double-border: true
 }
-
-# --- Optimize (fan-out) ---
 
 eval-optimize: |md
   **/eval-optimize**
 
-  automated fix loop, re-run
-  until judges pass
+  automated fix loop, re-run until judges pass
 | {
   shape: rectangle
   style.fill: "#e8e8e8"
@@ -94,13 +84,12 @@ eval-optimize: |md
   style.double-border: true
 }
 
-# --- MLflow (external service) ---
+# --- External integrations ---
 
 eval-mlflow: |md
   **/eval-mlflow**
 
-  sync datasets, log runs,
-  push/pull trace feedback
+  sync datasets, log runs, push/pull trace feedback
 | {
   shape: rectangle
   style.fill: "#e8e8e8"
@@ -109,13 +98,10 @@ eval-mlflow: |md
   style.stroke-dash: 3
 }
 
-# --- Check (side-channel) ---
-
 eval-check: |md
   **/eval-check**
 
-  harness health check:
-  overlap, redundancy
+  harness health check: overlap, redundancy
 | {
   shape: rectangle
   style.fill: "#e8e8e8"
@@ -137,6 +123,8 @@ eval-optimize -> eval-run: "re-run, SKILL.md edits" {
   style.stroke-dash: 3
 }
 
+# --- External (dashed) ---
+
 eval-dataset -> eval-mlflow: "sync dataset" {
   style.stroke-dash: 3
 }
@@ -146,7 +134,6 @@ eval-run -> eval-mlflow: "log results" {
 eval-review -> eval-mlflow: "push/pull feedback" {
   style.stroke-dash: 3
 }
-
 eval-run -> eval-check: "harness health" {
   style.stroke-dash: 3
 }

@@ -20,12 +20,12 @@ entry: |md
   style.stroke-width: 2
 }
 
-# --- Step 1: Dependencies ---
+# --- Step 1: dependencies ---
 
 install-deps: |md
   **Install Dependencies**
 
-  - isolated .eval-venv
+  - isolated .eval-venv/
   - re-run ensure_deps.py
   - uv / venv pip fallback
   - mlflow[genai], anthropic[vertex]
@@ -36,14 +36,14 @@ install-deps: |md
   style.stroke-width: 2
 }
 
-# --- Step 2: Preflight gate ---
+# --- Step 2: preflight (decision) ---
 
 preflight: |md
   **Run Preflight Checks**
 
-  check_env.py --fix
-  venv / deps / dirs
-  all checks pass?
+  - check_env.py --fix
+  - venv / deps / dirs
+  - all checks pass?
 | {
   shape: diamond
   style.fill: "#f5f5f5"
@@ -51,7 +51,7 @@ preflight: |md
   style.stroke-width: 2
 }
 
-# --- Step 3: Configure MLflow tracking ---
+# --- Steps 3-5: fix branch (config) ---
 
 mlflow-config: |md
   **Configure MLflow Tracking**
@@ -67,8 +67,6 @@ mlflow-config: |md
   style.stroke-width: 2
 }
 
-# --- Step 4: API keys ---
-
 api-keys: |md
   **Configure API Keys**
 
@@ -81,8 +79,6 @@ api-keys: |md
   style.stroke: "#333333"
   style.stroke-width: 2
 }
-
-# --- Step 5 / 5b: Runs dir + skill env ---
 
 runs-dir: |md
   **Configure Runs Dir + Env**
@@ -98,7 +94,7 @@ runs-dir: |md
   style.stroke-width: 2
 }
 
-# --- Step 6: Create MLflow experiment ---
+# --- Step 6: create experiment ---
 
 create-exp: |md
   **Create MLflow Experiment**
@@ -114,7 +110,7 @@ create-exp: |md
   style.stroke-width: 2
 }
 
-# --- Step 7: Final verification ---
+# --- Step 7: verify + report ---
 
 verify: |md
   **Final Verification**
@@ -129,8 +125,6 @@ verify: |md
   style.stroke-width: 2
 }
 
-# --- Output ---
-
 report-out: |md
   **Report + Next Steps**
 
@@ -144,7 +138,7 @@ report-out: |md
   style.stroke-width: 2
 }
 
-# --- External dependency: MLflow server ---
+# --- External ---
 
 mlflow-server: |md
   **MLflow Server**
@@ -160,7 +154,7 @@ mlflow-server: |md
   style.stroke-dash: 3
 }
 
-# --- Callout: venv check snippet ---
+# --- Callouts ---
 
 venv-check: |md
   VENV=.eval-venv/bin/python3
@@ -176,8 +170,6 @@ venv-check: |md
   style.font: mono
   style.font-size: 10
 }
-
-# --- Callout: MLflow setup options ---
 
 mlflow-options: |md
   # local server (recommended)
@@ -196,14 +188,12 @@ mlflow-options: |md
   style.font-size: 10
 }
 
-# --- Callout: URI precedence ---
-
 uri-precedence: |md
   URI resolution order:
   1. mlflow.tracking_uri
-       (eval.yaml)
+     (eval.yaml)
   2. MLFLOW_TRACKING_URI
-       (env var)
+     (env var)
   3. http://127.0.0.1:5000
 | {
   shape: rectangle
@@ -229,20 +219,23 @@ runs-dir -> create-exp: "re-check"
 create-exp -> verify
 verify -> report-out
 
-# Back-edge: final verification re-runs preflight to confirm fixes
-verify -> preflight: "re-verify" {
+# --- Back-edge (re-verify loop) ---
+
+verify -> preflight: re-verify {
   style.stroke-dash: 3
 }
 
-# External service connections (dashed)
-mlflow-config -> mlflow-server: "connect" {
+# --- External connections ---
+
+mlflow-config -> mlflow-server: connect {
   style.stroke-dash: 3
 }
-create-exp -> mlflow-server: "register" {
+create-exp -> mlflow-server {
   style.stroke-dash: 3
 }
 
-# Callout connections (light dashed)
+# --- Callout connections ---
+
 install-deps -> venv-check: {
   style.stroke: "#bbbbbb"
   style.stroke-dash: 4

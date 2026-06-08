@@ -2,104 +2,110 @@
   <root>
     <mxCell id="0"/>
     <mxCell id="1" parent="0"/>
-    <mxCell id="args" value="&lt;b&gt;/eval-check&lt;/b&gt;&lt;br&gt;&lt;br&gt;--output &lt;path&gt;&lt;br&gt;(harness-report.md)&lt;br&gt;--include-global&lt;br&gt;(scan ~/.claude/CLAUDE.md)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="40" y="235" width="190" height="130" as="geometry"/>
+    <mxCell id="entry" value="&lt;b&gt;/eval-check&lt;/b&gt;&lt;br&gt;&lt;br&gt;--output &lt;path&gt;&lt;br&gt;--include-global" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="40" y="300" width="160" height="110" as="geometry"/>
     </mxCell>
-    <mxCell id="inventory" value="&lt;b&gt;Inventory&lt;/b&gt;&lt;br&gt;&lt;br&gt;harness_inventory.py --root .&lt;br&gt;count skills, commands, hooks&lt;br&gt;approx word count per skill&lt;br&gt;structural warnings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="280" y="235" width="190" height="130" as="geometry"/>
+    <mxCell id="inventory" value="&lt;b&gt;Inventory&lt;/b&gt;&lt;br&gt;&lt;br&gt;run harness_inventory.py&lt;br&gt;count skills, commands, hooks&lt;br&gt;word count per skill&lt;br&gt;structural warnings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="250" y="290" width="190" height="130" as="geometry"/>
     </mxCell>
-    <mxCell id="single" value="&lt;b&gt;Single&lt;br&gt;skill?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;fontSize=12;fontFamily=Inter,Helvetica,Arial,sans-serif;" vertex="1" parent="1">
-      <mxGeometry x="520" y="245" width="130" height="110" as="geometry"/>
+    <mxCell id="inventory-script" value="&lt;b&gt;harness_inventory.py&lt;/b&gt;&lt;br&gt;external script&lt;br&gt;&lt;br&gt;--root .&lt;br&gt;discover artifacts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=2;dashed=1;dashPattern=8 4;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="255" y="500" width="180" height="100" as="geometry"/>
     </mxCell>
-    <mxCell id="scan" value="&lt;b&gt;Scan Configuration&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ececec;strokeColor=#333333;strokeWidth=2;container=1;collapsible=0;verticalAlign=top;spacingTop=5;fontSize=12;fontStyle=1;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="720" y="55" width="238" height="490" as="geometry"/>
+    <mxCell id="single-check" value="&lt;b&gt;Single skill?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;fontSize=12;fontFamily=Inter,Helvetica,Arial,sans-serif;" vertex="1" parent="1">
+      <mxGeometry x="500" y="295" width="150" height="120" as="geometry"/>
     </mxCell>
-    <mxCell id="scan-skills" value="&lt;b&gt;Read All Skills&lt;/b&gt;&lt;br&gt;&lt;br&gt;read each SKILL.md&lt;br&gt;extract frontmatter&lt;br&gt;(name, description, tools)&lt;br&gt;capture body rules&lt;br&gt;note sub-skill refs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="scan">
-      <mxGeometry x="20" y="45" width="200" height="110" as="geometry"/>
+    <mxCell id="read-skills" value="&lt;b&gt;Read All Skills&lt;/b&gt;&lt;br&gt;&lt;br&gt;YAML frontmatter&lt;br&gt;body rules&lt;br&gt;cross-skill refs&lt;br&gt;domain summaries" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="720" y="290" width="170" height="130" as="geometry"/>
     </mxCell>
-    <mxCell id="scan-commands" value="&lt;b&gt;Scan Commands&lt;/b&gt;&lt;br&gt;&lt;br&gt;custom command files&lt;br&gt;detect built-in shadows&lt;br&gt;capture trigger surface" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="scan">
-      <mxGeometry x="20" y="170" width="200" height="90" as="geometry"/>
+    <mxCell id="read-claude" value="&lt;b&gt;Read CLAUDE.md&lt;/b&gt;&lt;br&gt;&lt;br&gt;./CLAUDE.md&lt;br&gt;./.claude/CLAUDE.md&lt;br&gt;~/.claude (opt-in)&lt;br&gt;extract rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="720" y="500" width="170" height="130" as="geometry"/>
     </mxCell>
-    <mxCell id="scan-claudemd" value="&lt;b&gt;Read CLAUDE.md&lt;/b&gt;&lt;br&gt;&lt;br&gt;./CLAUDE.md (project)&lt;br&gt;./.claude/CLAUDE.md&lt;br&gt;~/.claude/CLAUDE.md&lt;br&gt;(opt-in --include-global)&lt;br&gt;extract always-on rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="scan">
-      <mxGeometry x="20" y="275" width="200" height="110" as="geometry"/>
+    <mxCell id="analysis" value="&lt;b&gt;Cross-Component Analysis&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ececec;strokeColor=#333333;strokeWidth=2;container=1;collapsible=0;verticalAlign=top;spacingTop=5;fontSize=12;fontStyle=1;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="960" y="130" width="228" height="540" as="geometry"/>
     </mxCell>
-    <mxCell id="scan-hooks" value="&lt;b&gt;Scan Hooks&lt;/b&gt;&lt;br&gt;&lt;br&gt;hook configs&lt;br&gt;deterministic blocks&lt;br&gt;PreToolUse / on-stop" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="scan">
-      <mxGeometry x="20" y="400" width="200" height="80" as="geometry"/>
+    <mxCell id="content-overlap" value="&lt;b&gt;Content Overlap&lt;/b&gt;&lt;br&gt;same domain&lt;br&gt;duplicate rules&lt;br&gt;dup word cost" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=3;double=1;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="analysis">
+      <mxGeometry x="20" y="45" width="190" height="80" as="geometry"/>
     </mxCell>
-    <mxCell id="analyze" value="&lt;b&gt;Cross-Component Analysis&lt;/b&gt;&lt;br&gt;LLM (reviewing model)&lt;br&gt;&lt;br&gt;content overlap (per pair)&lt;br&gt;trigger overlap (descriptions)&lt;br&gt;CLAUDE.md duplication&lt;br&gt;type misclassification&lt;br&gt;structural issues" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=3;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;double=1;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1010" y="225" width="210" height="150" as="geometry"/>
+    <mxCell id="trigger-overlap" value="&lt;b&gt;Trigger Overlap&lt;/b&gt;&lt;br&gt;description fields&lt;br&gt;same-task activation&lt;br&gt;broad triggers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=3;double=1;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="analysis">
+      <mxGeometry x="20" y="140" width="190" height="80" as="geometry"/>
     </mxCell>
-    <mxCell id="classify" value="&lt;b&gt;Classify Findings&lt;/b&gt;&lt;br&gt;&lt;br&gt;bucket by category&lt;br&gt;estimate word cost of dup&lt;br&gt;rank actionability&lt;br&gt;flag merge / move / narrow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1270" y="230" width="195" height="140" as="geometry"/>
+    <mxCell id="claude-dup" value="&lt;b&gt;CLAUDE.md Dup&lt;/b&gt;&lt;br&gt;rule in CLAUDE.md&lt;br&gt;skill contradicts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=3;double=1;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="analysis">
+      <mxGeometry x="20" y="235" width="190" height="70" as="geometry"/>
     </mxCell>
-    <mxCell id="gen-report" value="&lt;b&gt;Generate Report&lt;/b&gt;&lt;br&gt;&lt;br&gt;resolve --output in root&lt;br&gt;(refuse .. traversal)&lt;br&gt;Write tool, read-only scan&lt;br&gt;findings + suggestions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1515" y="235" width="195" height="130" as="geometry"/>
+    <mxCell id="misclass" value="&lt;b&gt;Type Misclass&lt;/b&gt;&lt;br&gt;skill vs hook&lt;br&gt;skill vs command&lt;br&gt;CLAUDE.md vs skill" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=3;double=1;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="analysis">
+      <mxGeometry x="20" y="320" width="190" height="80" as="geometry"/>
     </mxCell>
-    <mxCell id="output-summary" value="&lt;b&gt;Present Summary&lt;/b&gt;&lt;br&gt;&lt;br&gt;harness-report.md&lt;br&gt;components + per-category counts&lt;br&gt;top 3 suggestions&lt;br&gt;next: /eval-analyze, /eval-run" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1760" y="230" width="210" height="140" as="geometry"/>
+    <mxCell id="structural" value="&lt;b&gt;Structural Issues&lt;/b&gt;&lt;br&gt;missing description&lt;br&gt;broad triggers&lt;br&gt;shadow commands" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=3;double=1;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="analysis">
+      <mxGeometry x="20" y="415" width="190" height="80" as="geometry"/>
     </mxCell>
-    <mxCell id="eval-analyze" value="&lt;b&gt;/eval-analyze&lt;/b&gt;&lt;br&gt;--skill &lt;name&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=2;dashed=1;dashPattern=8 4;verticalAlign=middle;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="2030" y="215" width="150" height="65" as="geometry"/>
+    <mxCell id="gen-report" value="&lt;b&gt;Generate Report&lt;/b&gt;&lt;br&gt;&lt;br&gt;path-safety check&lt;br&gt;inventory + findings&lt;br&gt;numbered suggestions&lt;br&gt;Write tool" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="1260" y="290" width="180" height="130" as="geometry"/>
     </mxCell>
-    <mxCell id="eval-run" value="&lt;b&gt;/eval-run&lt;/b&gt;&lt;br&gt;--model &lt;model&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=2;dashed=1;dashPattern=8 4;verticalAlign=middle;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="2030" y="325" width="150" height="65" as="geometry"/>
+    <mxCell id="report-out" value="&lt;b&gt;harness-report.md&lt;/b&gt;&lt;br&gt;&lt;br&gt;Inventory table&lt;br&gt;Findings sections&lt;br&gt;Suggestions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;strokeWidth=1;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="1260" y="500" width="180" height="110" as="geometry"/>
     </mxCell>
-    <mxCell id="findings-box" value="Findings (5 categories)&lt;br&gt;- Content Overlap&lt;br&gt;- Trigger Overlap&lt;br&gt;- CLAUDE.md Duplication&lt;br&gt;- Type Misclassification&lt;br&gt;- Structural Issues" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#bbbbbb;strokeWidth=1;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;fontSize=10;fontFamily=JetBrains Mono,Courier New,monospace;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1255" y="590" width="225" height="140" as="geometry"/>
+    <mxCell id="report-callout" value="# Harness Health Report&lt;br&gt;## Inventory&lt;br&gt;- Skills: N (~X words)&lt;br&gt;- Commands / Hooks: N&lt;br&gt;## Findings&lt;br&gt;&amp;nbsp;&amp;nbsp;Content Overlap&lt;br&gt;&amp;nbsp;&amp;nbsp;Trigger Overlap&lt;br&gt;&amp;nbsp;&amp;nbsp;CLAUDE.md Duplication&lt;br&gt;&amp;nbsp;&amp;nbsp;Type Misclassification&lt;br&gt;&amp;nbsp;&amp;nbsp;Structural Issues&lt;br&gt;## Suggestions&lt;br&gt;## Notes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#bbbbbb;strokeWidth=1;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;fontSize=10;fontFamily=JetBrains Mono,Courier New,monospace;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="1250" y="680" width="230" height="200" as="geometry"/>
     </mxCell>
-    <mxCell id="report-box" value="harness-report.md&lt;br&gt;# Harness Health Report&lt;br&gt;## Inventory&lt;br&gt;&amp;nbsp;&amp;nbsp;Skills: N (~X words)&lt;br&gt;&amp;nbsp;&amp;nbsp;Commands / Hooks / CLAUDE.md&lt;br&gt;## Findings (per category)&lt;br&gt;## Suggestions (numbered)&lt;br&gt;## Notes (approx, informational)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#bbbbbb;strokeWidth=1;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;fontSize=10;fontFamily=JetBrains Mono,Courier New,monospace;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1520" y="590" width="260" height="160" as="geometry"/>
+    <mxCell id="summary" value="&lt;b&gt;Present Summary&lt;/b&gt;&lt;br&gt;&lt;br&gt;components found&lt;br&gt;findings per category&lt;br&gt;top 3 suggestions&lt;br&gt;next steps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="1520" y="290" width="180" height="130" as="geometry"/>
     </mxCell>
-    <mxCell id="e-args-inventory" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="args" target="inventory" parent="1">
+    <mxCell id="e-entry-inventory" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="entry" target="inventory" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-inventory-single" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="inventory" target="single" parent="1">
+    <mxCell id="e-inventory-script" value="--root ." style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;dashPattern=8 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;fontStyle=2;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="inventory" target="inventory-script" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-single-scan" value="multiple" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontStyle=2;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="single" target="scan" parent="1">
+    <mxCell id="e-inventory-single" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="inventory" target="single-check" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-single-genreport" value="single skill (skip analysis)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;dashPattern=8 4;html=1;fontStyle=2;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="single" target="gen-report" parent="1">
+    <mxCell id="e-single-read" value="no" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;fontStyle=2;fontSize=11;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="single-check" target="read-skills" parent="1">
+      <mxGeometry relative="1" as="geometry">
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="e-single-summary" value="yes, skip 2-5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;dashPattern=8 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;fontStyle=2;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="single-check" target="summary" parent="1">
       <mxGeometry relative="1" as="geometry">
         <Array as="points">
-          <mxPoint x="585" y="25"/>
-          <mxPoint x="1612.5" y="25"/>
+          <mxPoint x="575" y="900"/>
+          <mxPoint x="1610" y="900"/>
         </Array>
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-scan-analyze" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="scan" target="analyze" parent="1">
+    <mxCell id="e-read-skills-claude" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="read-skills" target="read-claude" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-analyze-classify" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="analyze" target="classify" parent="1">
+    <mxCell id="e-claude-analysis" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.8055555555555556;entryDx=0;entryDy=0;" edge="1" source="read-claude" target="analysis" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-classify-genreport" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="classify" target="gen-report" parent="1">
+    <mxCell id="e-analysis-gen" value="findings" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;fontStyle=2;fontSize=11;exitX=1;exitY=0.4166666666666667;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="analysis" target="gen-report" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-genreport-summary" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="gen-report" target="output-summary" parent="1">
+    <mxCell id="e-gen-summary" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="gen-report" target="summary" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-summary-analyze" value="dive deeper" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;dashPattern=8 4;html=1;fontStyle=2;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.17857142857142858;exitDx=0;exitDy=0;entryX=0;entryY=0.6153846153846154;entryDx=0;entryDy=0;" edge="1" source="output-summary" target="eval-analyze" parent="1">
+    <mxCell id="e-gen-reportout" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="gen-report" target="report-out" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-summary-run" value="test impact" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;dashPattern=8 4;html=1;fontStyle=2;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.8392857142857143;exitDx=0;exitDy=0;entryX=0;entryY=0.34615384615384615;entryDx=0;entryDy=0;" edge="1" source="output-summary" target="eval-run" parent="1">
+    <mxCell id="e-reportout-callout" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#bbbbbb;strokeWidth=1;dashed=1;dashPattern=4 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.43478260869565216;entryY=0;entryDx=0;entryDy=0;" edge="1" source="report-out" target="report-callout" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-classify-findings" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#bbbbbb;strokeWidth=1;dashed=1;dashPattern=4 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="classify" target="findings-box" parent="1">
+    <mxCell id="e-summary-read-loop" value="/eval-analyze next steps" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;dashPattern=8 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;fontStyle=2;fontSize=11;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="summary" target="read-skills" parent="1">
       <mxGeometry relative="1" as="geometry">
-      </mxGeometry>
-    </mxCell>
-    <mxCell id="e-genreport-reportbox" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#bbbbbb;strokeWidth=1;dashed=1;dashPattern=4 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5128205128205128;exitY=1;exitDx=0;exitDy=0;entryX=0.36538461538461536;entryY=0;entryDx=0;entryDy=0;" edge="1" source="gen-report" target="report-box" parent="1">
-      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1610" y="110"/>
+          <mxPoint x="940" y="110"/>
+          <mxPoint x="940" y="250"/>
+          <mxPoint x="805" y="250"/>
+        </Array>
       </mxGeometry>
     </mxCell>
   </root>

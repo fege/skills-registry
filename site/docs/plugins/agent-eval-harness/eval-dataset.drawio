@@ -2,125 +2,111 @@
   <root>
     <mxCell id="0"/>
     <mxCell id="1" parent="0"/>
-    <mxCell id="args" value="&lt;b&gt;/eval-dataset&lt;/b&gt;&lt;br&gt;&lt;br&gt;--config &lt;path&gt;&lt;br&gt;--count &lt;N&gt; (default 5)&lt;br&gt;--strategy &lt;type&gt;&lt;br&gt;--run-id &lt;id&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="40" y="470" width="210" height="150" as="geometry"/>
+    <mxCell id="args" value="&lt;b&gt;/eval-dataset&lt;/b&gt;&lt;br&gt;&lt;br&gt;--config &lt;path&gt;&lt;br&gt;--count N (5)&lt;br&gt;--strategy&lt;br&gt;--run-id &lt;id&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="30" y="130" width="150" height="140" as="geometry"/>
     </mxCell>
-    <mxCell id="read-context" value="&lt;b&gt;Read Context&lt;/b&gt;&lt;br&gt;&lt;br&gt;discover.py eval config&lt;br&gt;eval.yaml: schema,&lt;br&gt;&amp;nbsp;&amp;nbsp;execution, judges&lt;br&gt;eval.md skill analysis&lt;br&gt;judge-driven reqs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="300" y="470" width="225" height="150" as="geometry"/>
+    <mxCell id="discover" value="&lt;b&gt;Discover Config&lt;/b&gt;&lt;br&gt;&lt;i&gt;discover.py&lt;/i&gt;&lt;br&gt;&lt;br&gt;--config &#8594; use directly&lt;br&gt;1 found &#8594; select&lt;br&gt;many &#8594; ask user&lt;br&gt;none &#8594; /eval-analyze" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=2;dashed=1;dashPattern=8 4;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="220" y="120" width="180" height="160" as="geometry"/>
     </mxCell>
-    <mxCell id="invoke-analyze" value="&lt;b&gt;/eval-analyze&lt;/b&gt;&lt;br&gt;external skill&lt;br&gt;&lt;br&gt;no eval.yaml found&lt;br&gt;ask which skill&lt;br&gt;Skill tool invoke&lt;br&gt;re-read eval.yaml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=2;dashed=1;dashPattern=8 4;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="585" y="250" width="215" height="150" as="geometry"/>
+    <mxCell id="read-context" value="&lt;b&gt;Read Context&lt;/b&gt;&lt;br&gt;&lt;i&gt;eval.yaml + eval.md&lt;/i&gt;&lt;br&gt;&lt;br&gt;skill, execution mode&lt;br&gt;dataset.schema + path&lt;br&gt;output schemas&lt;br&gt;extract judges &#8594; reqs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="440" y="120" width="185" height="160" as="geometry"/>
     </mxCell>
-    <mxCell id="build-template" value="&lt;b&gt;Parse Schema +&lt;br&gt;Assess State&lt;/b&gt;&lt;br&gt;&lt;br&gt;required files / fields&lt;br&gt;{field} placeholders&lt;br&gt;[EXTERNAL] markers&lt;br&gt;ls existing cases&lt;br&gt;recommend --count" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="585" y="470" width="230" height="165" as="geometry"/>
+    <mxCell id="parse-schema" value="&lt;b&gt;Parse Schema&lt;/b&gt;&lt;br&gt;&lt;i&gt;generation template&lt;/i&gt;&lt;br&gt;&lt;br&gt;required files + fields&lt;br&gt;optional fields (vary)&lt;br&gt;{field} placeholders&lt;br&gt;[EXTERNAL] &#8594; TODO_" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="665" y="120" width="185" height="160" as="geometry"/>
     </mxCell>
-    <mxCell id="choose" value="&lt;b&gt;Choose&lt;br&gt;strategy?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;fontSize=12;fontFamily=Inter,Helvetica,Arial,sans-serif;" vertex="1" parent="1">
-      <mxGeometry x="885" y="480" width="190" height="145" as="geometry"/>
+    <mxCell id="assess" value="&lt;b&gt;Assess State&lt;/b&gt;&lt;br&gt;&lt;br&gt;ls dataset_path&lt;br&gt;count existing cases&lt;br&gt;read one sample&lt;br&gt;note coverage gaps&lt;br&gt;check --count vs paths" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="890" y="120" width="175" height="160" as="geometry"/>
     </mxCell>
-    <mxCell id="bootstrap" value="&lt;b&gt;Bootstrap (default)&lt;/b&gt;&lt;br&gt;LLM generation&lt;br&gt;&lt;br&gt;from scratch, N cases&lt;br&gt;1 simple + 1 complex&lt;br&gt;1 edge case&lt;br&gt;rest &#8594; judge reqs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=3;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;double=1;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1145" y="280" width="225" height="150" as="geometry"/>
+    <mxCell id="strategy" value="&lt;b&gt;Choose&lt;br&gt;Strategy&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;fontSize=12;fontFamily=Inter,Helvetica,Arial,sans-serif;" vertex="1" parent="1">
+      <mxGeometry x="1105" y="145" width="130" height="110" as="geometry"/>
     </mxCell>
-    <mxCell id="expand" value="&lt;b&gt;Expand&lt;/b&gt;&lt;br&gt;LLM gap-filling&lt;br&gt;&lt;br&gt;read existing cases&lt;br&gt;find coverage gaps&lt;br&gt;dedupe scenarios&lt;br&gt;--run-id &#8594; failures" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=3;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;double=1;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1145" y="480.0" width="225" height="150" as="geometry"/>
+    <mxCell id="bootstrap" value="&lt;b&gt;bootstrap&lt;/b&gt;&lt;br&gt;&lt;i&gt;default, from zero&lt;/i&gt;&lt;br&gt;&lt;br&gt;1 simple case&lt;br&gt;1 complex case&lt;br&gt;1 edge case&lt;br&gt;rest &#8594; judge reqs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="1290" y="20" width="175" height="130" as="geometry"/>
     </mxCell>
-    <mxCell id="from-traces" value="&lt;b&gt;From-Traces&lt;/b&gt;&lt;br&gt;LLM from real inputs&lt;br&gt;&lt;br&gt;from_traces.py&lt;br&gt;extract MLflow inputs&lt;br&gt;structure to schema&lt;br&gt;exit 2 &#8594; fall back" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=3;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;double=1;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1145" y="680" width="225" height="150" as="geometry"/>
+    <mxCell id="expand" value="&lt;b&gt;expand&lt;/b&gt;&lt;br&gt;&lt;i&gt;thin coverage&lt;/i&gt;&lt;br&gt;&lt;br&gt;read existing cases&lt;br&gt;find gaps vs judges&lt;br&gt;continue numbering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="1290" y="165" width="175" height="115" as="geometry"/>
     </mxCell>
-    <mxCell id="run-results" value="&lt;b&gt;Prior Run&lt;/b&gt;&lt;br&gt;external data&lt;br&gt;&lt;br&gt;state.py read&lt;br&gt;summary.yaml&lt;br&gt;judge failure patterns" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=2;dashed=1;dashPattern=8 4;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1160.0" y="940" width="195" height="140" as="geometry"/>
+    <mxCell id="from-traces" value="&lt;b&gt;from-traces&lt;/b&gt;&lt;br&gt;&lt;i&gt;production usage&lt;/i&gt;&lt;br&gt;&lt;br&gt;from_traces.py&lt;br&gt;extract real inputs&lt;br&gt;exit 2 &#8594; fall back&lt;br&gt;to expand" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=2;dashed=1;dashPattern=8 4;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="1290" y="295" width="175" height="130" as="geometry"/>
     </mxCell>
-    <mxCell id="mlflow" value="&lt;b&gt;MLflow Traces&lt;/b&gt;&lt;br&gt;external service&lt;br&gt;&lt;br&gt;production traces&lt;br&gt;prompt + tool I/O" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=2;dashed=1;dashPattern=8 4;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1395" y="940" width="195" height="130" as="geometry"/>
+    <mxCell id="generate" value="&lt;b&gt;Generate Cases&lt;/b&gt;&lt;br&gt;&lt;i&gt;LLM synthesis&lt;/i&gt;&lt;br&gt;&lt;br&gt;case-NNN-slug/ dirs&lt;br&gt;input.yaml (all fields)&lt;br&gt;answers.yaml (guidance)&lt;br&gt;annotations.yaml&lt;br&gt;companion files&lt;br&gt;realistic content" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=3;double=1;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="1530" y="130" width="185" height="185" as="geometry"/>
     </mxCell>
-    <mxCell id="generate" value="&lt;b&gt;Generate Cases&lt;/b&gt;&lt;br&gt;&lt;br&gt;case-NNN-slug/ dirs&lt;br&gt;input.yaml fields&lt;br&gt;answers.yaml guidance&lt;br&gt;annotations.yaml&lt;br&gt;companion files&lt;br&gt;TODO_ for [EXTERNAL]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1460" y="455" width="230" height="200" as="geometry"/>
+    <mxCell id="validate-cases" value="&lt;b&gt;Validate&lt;/b&gt;&lt;br&gt;&lt;br&gt;read case back vs schema&lt;br&gt;count files per case&lt;br&gt;{field} placeholders set&lt;br&gt;companion files present&lt;br&gt;both judge if-branches" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="1780" y="135" width="185" height="175" as="geometry"/>
     </mxCell>
-    <mxCell id="validate" value="&lt;b&gt;Validate&lt;/b&gt;&lt;br&gt;&lt;br&gt;read a case back&lt;br&gt;schema match, fields&lt;br&gt;{field} coverage&lt;br&gt;conditional judge&lt;br&gt;&amp;nbsp;&amp;nbsp;both branches" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1780" y="470" width="220" height="165" as="geometry"/>
+    <mxCell id="report" value="&lt;b&gt;Report&lt;/b&gt;&lt;br&gt;&lt;br&gt;N cases at &lt;path&gt;&lt;br&gt;strategy + coverage&lt;br&gt;TODO_ placeholders&lt;br&gt;next: /eval-run" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;strokeWidth=1;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="1790" y="385" width="175" height="110" as="geometry"/>
     </mxCell>
-    <mxCell id="report" value="&lt;b&gt;Report&lt;/b&gt;&lt;br&gt;&lt;br&gt;N cases + strategy&lt;br&gt;coverage summary&lt;br&gt;TODO_ placeholders&lt;br&gt;next: /eval-run" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;verticalAlign=top;spacingTop=5;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="2090" y="475" width="200" height="150" as="geometry"/>
+    <mxCell id="case-tree" value="dataset.path/&lt;br&gt;&amp;nbsp;&amp;nbsp;case-001-simple/&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input.yaml&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;answers.yaml&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;annotations.yaml&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;reference.md&lt;br&gt;&amp;nbsp;&amp;nbsp;case-002-complex/&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#bbbbbb;strokeWidth=1;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;fontSize=10;fontFamily=JetBrains Mono,Courier New,monospace;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
+      <mxGeometry x="1500" y="355" width="215" height="150" as="geometry"/>
     </mxCell>
-    <mxCell id="case-tree" value="dataset/&lt;br&gt;&amp;nbsp;&amp;nbsp;case-001-simple-basic/&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input.yaml&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;answers.yaml&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;annotations.yaml&lt;br&gt;&amp;nbsp;&amp;nbsp;case-002-complex-multi/&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input.yaml&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;strategy.md" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#bbbbbb;strokeWidth=1;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;fontSize=10;fontFamily=JetBrains Mono,Courier New,monospace;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="1700" y="720" width="250" height="175" as="geometry"/>
-    </mxCell>
-    <mxCell id="yaml-snippet" value="# input.yaml&lt;br&gt;prompt: &quot;...&quot;&lt;br&gt;strat_key: &quot;...&quot;&lt;br&gt;project_key:&lt;br&gt;&amp;nbsp;&amp;nbsp;TODO_JIRA_PROJECT_KEY&lt;br&gt;# annotations.yaml&lt;br&gt;dedup_is_duplicate: true&lt;br&gt;tags: [dedup, high-overlap]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#bbbbbb;strokeWidth=1;verticalAlign=top;spacingTop=5;align=left;spacingLeft=8;fontSize=10;fontFamily=JetBrains Mono,Courier New,monospace;arcSize=16;absoluteArcSize=1;" vertex="1" parent="1">
-      <mxGeometry x="2010" y="720" width="270" height="175" as="geometry"/>
-    </mxCell>
-    <mxCell id="e-args-read" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="args" target="read-context" parent="1">
+    <mxCell id="e_args_discover" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="args" target="discover" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-read-analyze" value="no eval.yaml" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;dashPattern=8 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="read-context" target="invoke-analyze" parent="1">
+    <mxCell id="e_discover_readctx" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="discover" target="read-context" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-read-template" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.45454545454545453;entryDx=0;entryDy=0;" edge="1" source="read-context" target="build-template" parent="1">
+    <mxCell id="e_readctx_parse" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="read-context" target="parse-schema" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-analyze-template" value="re-read" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;dashPattern=8 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.4673913043478261;entryY=0;entryDx=0;entryDy=0;" edge="1" source="invoke-analyze" target="build-template" parent="1">
+    <mxCell id="e_parse_assess" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="parse-schema" target="assess" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-template-choose" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="build-template" target="choose" parent="1">
+    <mxCell id="e_assess_strategy" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="assess" target="strategy" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-choose-bootstrap" value="default / &lt; 5 cases" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="choose" target="bootstrap" parent="1">
+    <mxCell id="e_strategy_bootstrap" value="from zero" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontStyle=2;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="strategy" target="bootstrap" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-choose-expand" value="thin coverage" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="choose" target="expand" parent="1">
+    <mxCell id="e_strategy_expand" value="cases exist" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontStyle=2;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="strategy" target="expand" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-choose-traces" value="--strategy from-traces" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="choose" target="from-traces" parent="1">
+    <mxCell id="e_strategy_fromtraces" value="from-traces" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontStyle=2;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="strategy" target="from-traces" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-expand-results" value="--run-id" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;dashPattern=8 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="expand" target="run-results" parent="1">
+    <mxCell id="e_bootstrap_generate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="bootstrap" target="generate" parent="1">
+      <mxGeometry relative="1" as="geometry">
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="e_expand_generate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="expand" target="generate" parent="1">
+      <mxGeometry relative="1" as="geometry">
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="e_fromtraces_generate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1.0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="from-traces" target="generate" parent="1">
+      <mxGeometry relative="1" as="geometry">
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="e_generate_validate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="generate" target="validate-cases" parent="1">
+      <mxGeometry relative="1" as="geometry">
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="e_validate_generate" value="schema errors" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;dashPattern=8 4;html=1;fontStyle=2;fontSize=11;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="validate-cases" target="generate" parent="1">
       <mxGeometry relative="1" as="geometry">
         <Array as="points">
-          <mxPoint x="1110" y="555"/>
-          <mxPoint x="1110" y="1010"/>
+          <mxPoint x="1872.5" y="105"/>
+          <mxPoint x="1622.5" y="105"/>
         </Array>
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-traces-mlflow" value="search" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;dashPattern=8 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="from-traces" target="mlflow" parent="1">
+    <mxCell id="e_validate_report" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.527027027027027;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="validate-cases" target="report" parent="1">
       <mxGeometry relative="1" as="geometry">
       </mxGeometry>
     </mxCell>
-    <mxCell id="e-bootstrap-generate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="bootstrap" target="generate" parent="1">
+    <mxCell id="e_generate_casetree" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#bbbbbb;strokeWidth=1;dashed=1;dashPattern=4 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="generate" target="case-tree" parent="1">
       <mxGeometry relative="1" as="geometry">
-      </mxGeometry>
-    </mxCell>
-    <mxCell id="e-expand-generate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="expand" target="generate" parent="1">
-      <mxGeometry relative="1" as="geometry">
-      </mxGeometry>
-    </mxCell>
-    <mxCell id="e-traces-generate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="from-traces" target="generate" parent="1">
-      <mxGeometry relative="1" as="geometry">
-      </mxGeometry>
-    </mxCell>
-    <mxCell id="e-generate-validate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.4875;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="generate" target="validate" parent="1">
-      <mxGeometry relative="1" as="geometry">
-      </mxGeometry>
-    </mxCell>
-    <mxCell id="e-validate-generate" value="schema errors" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;dashPattern=8 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.4875;entryDx=0;entryDy=0;" edge="1" source="validate" target="generate" parent="1">
-      <mxGeometry relative="1" as="geometry">
-      </mxGeometry>
-    </mxCell>
-    <mxCell id="e-validate-report" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=1;exitY=0.48484848484848486;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="validate" target="report" parent="1">
-      <mxGeometry relative="1" as="geometry">
-      </mxGeometry>
-    </mxCell>
-    <mxCell id="e-callout-tree" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#bbbbbb;strokeWidth=1;dashed=1;dashPattern=4 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="generate" target="case-tree" parent="1">
-      <mxGeometry relative="1" as="geometry">
-      </mxGeometry>
-    </mxCell>
-    <mxCell id="e-callout-yaml" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#bbbbbb;strokeWidth=1;dashed=1;dashPattern=4 4;html=1;fontFamily=Inter,Helvetica,Arial,sans-serif;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="validate" target="yaml-snippet" parent="1">
-      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1622.5" y="330"/>
+          <mxPoint x="1607.5" y="330"/>
+        </Array>
       </mxGeometry>
     </mxCell>
   </root>

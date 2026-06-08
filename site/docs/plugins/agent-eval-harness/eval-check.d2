@@ -7,13 +7,11 @@ direction: right
 
 # --- Entry ---
 
-args: |md
+entry: |md
   **/eval-check**
 
-  - --output \<path\>
-    (harness-report.md)
+  - --output <path>
   - --include-global
-    (scan ~/.claude/CLAUDE.md)
 | {
   shape: rectangle
   style.fill: "#f5f5f5"
@@ -21,14 +19,14 @@ args: |md
   style.stroke-width: 2
 }
 
-# --- Inventory ---
+# --- Step 1: Inventory ---
 
 inventory: |md
   **Inventory**
 
-  - harness_inventory.py --root .
+  - run harness_inventory.py
   - count skills, commands, hooks
-  - approx word count per skill
+  - word count per skill
   - structural warnings
 | {
   shape: rectangle
@@ -37,9 +35,23 @@ inventory: |md
   style.stroke-width: 2
 }
 
+inventory-script: |md
+  **harness_inventory.py**
+  external script
+
+  - --root .
+  - discover artifacts
+| {
+  shape: rectangle
+  style.fill: "#e8e8e8"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+  style.stroke-dash: 3
+}
+
 # --- Decision: single skill? ---
 
-single: |md
+single-check: |md
   **Single skill?**
 | {
   shape: diamond
@@ -48,114 +60,120 @@ single: |md
   style.stroke-width: 2
 }
 
-# --- Scan fan-out (parallel scanners) ---
+# --- Step 2: Read All Skills ---
 
-scan: Scan Configuration {
+read-skills: |md
+  **Read All Skills**
+
+  - YAML frontmatter
+  - body rules
+  - cross-skill refs
+  - domain summaries
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+# --- Step 3: Read CLAUDE.md ---
+
+read-claude: |md
+  **Read CLAUDE.md**
+
+  - ./CLAUDE.md
+  - ./.claude/CLAUDE.md
+  - ~/.claude (opt-in)
+  - extract rules
+| {
+  shape: rectangle
+  style.fill: "#f5f5f5"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+}
+
+# --- Step 4: Cross-Component Analysis (LLM) ---
+
+analysis: Cross-Component Analysis {
   style.fill: "#ececec"
   style.stroke: "#333333"
   style.stroke-width: 2
 
-  scan-skills: |md
-    **Read All Skills**
+  content-overlap: |md
+    **Content Overlap**
 
-    - read each SKILL.md
-    - extract frontmatter
-      (name, description, tools)
-    - capture body rules
-    - note sub-skill refs
+    - same domain
+    - duplicate rules
+    - dup word cost
   | {
     shape: rectangle
-    style.fill: "#f5f5f5"
+    style.fill: "#e8e8e8"
     style.stroke: "#333333"
-    style.stroke-width: 2
+    style.stroke-width: 3
+    style.double-border: true
   }
+  trigger-overlap: |md
+    **Trigger Overlap**
 
-  scan-commands: |md
-    **Scan Commands**
-
-    - custom command files
-    - detect built-in shadows
-    - capture trigger surface
+    - description fields
+    - same-task activation
+    - broad triggers
   | {
     shape: rectangle
-    style.fill: "#f5f5f5"
+    style.fill: "#e8e8e8"
     style.stroke: "#333333"
-    style.stroke-width: 2
+    style.stroke-width: 3
+    style.double-border: true
   }
+  claude-dup: |md
+    **CLAUDE.md Dup**
 
-  scan-claudemd: |md
-    **Read CLAUDE.md**
-
-    - ./CLAUDE.md (project)
-    - ./.claude/CLAUDE.md
-    - ~/.claude/CLAUDE.md
-      (opt-in --include-global)
-    - extract always-on rules
+    - rule in CLAUDE.md
+    - skill contradicts
   | {
     shape: rectangle
-    style.fill: "#f5f5f5"
+    style.fill: "#e8e8e8"
     style.stroke: "#333333"
-    style.stroke-width: 2
+    style.stroke-width: 3
+    style.double-border: true
   }
+  misclass: |md
+    **Type Misclass**
 
-  scan-hooks: |md
-    **Scan Hooks**
-
-    - hook configs
-    - deterministic blocks
-    - PreToolUse / on-stop
+    - skill vs hook
+    - skill vs command
+    - CLAUDE.md vs skill
   | {
     shape: rectangle
-    style.fill: "#f5f5f5"
+    style.fill: "#e8e8e8"
     style.stroke: "#333333"
-    style.stroke-width: 2
+    style.stroke-width: 3
+    style.double-border: true
+  }
+  structural: |md
+    **Structural Issues**
+
+    - missing description
+    - broad triggers
+    - shadow commands
+  | {
+    shape: rectangle
+    style.fill: "#e8e8e8"
+    style.stroke: "#333333"
+    style.stroke-width: 3
+    style.double-border: true
   }
 }
 
-# --- Cross-component analysis (LLM) ---
-
-analyze: |md
-  **Cross-Component Analysis**
-  LLM (reviewing model)
-
-  - content overlap (per pair)
-  - trigger overlap (descriptions)
-  - CLAUDE.md duplication
-  - type misclassification
-  - structural issues
-| {
-  shape: rectangle
-  style.fill: "#e8e8e8"
-  style.stroke: "#333333"
-  style.stroke-width: 2
-  style.double-border: true
-}
-
-# --- Classify findings ---
-
-classify: |md
-  **Classify Findings**
-
-  - bucket by category
-  - estimate word cost of dup
-  - rank actionability
-  - flag merge / move / narrow
-| {
-  shape: rectangle
-  style.fill: "#f5f5f5"
-  style.stroke: "#333333"
-  style.stroke-width: 2
-}
-
-# --- Generate report (output) ---
+# --- Step 5: Generate Report ---
 
 gen-report: |md
   **Generate Report**
 
-  - resolve --output in root
-    (refuse .. traversal)
-  - Write tool, read-only scan
-  - findings + suggestions
+  - path-safety check
+  - inventory + findings
+  - numbered suggestions
+  - Write tool
 | {
   shape: rectangle
   style.fill: "#f5f5f5"
@@ -163,15 +181,15 @@ gen-report: |md
   style.stroke-width: 2
 }
 
-# --- Present summary (output) ---
+# --- Step 6: Present Summary ---
 
-output-summary: |md
+summary: |md
   **Present Summary**
 
-  - harness-report.md
-  - components + per-category counts
+  - components found
+  - findings per category
   - top 3 suggestions
-  - next: /eval-analyze, /eval-run
+  - next steps
 | {
   shape: rectangle
   style.fill: "#f5f5f5"
@@ -179,59 +197,36 @@ output-summary: |md
   style.stroke-width: 2
 }
 
-# --- Downstream skills (external) ---
+# --- Output ---
 
-eval-analyze: |md
-  **/eval-analyze**
-  --skill \<name\>
+report-out: |md
+  **harness-report.md**
+
+  - Inventory table
+  - Findings sections
+  - Suggestions
 | {
   shape: rectangle
   style.fill: "#f5f5f5"
-  style.stroke: "#333333"
-  style.stroke-width: 2
-  style.stroke-dash: 3
-}
-
-eval-run: |md
-  **/eval-run**
-  --model \<model\>
-| {
-  shape: rectangle
-  style.fill: "#f5f5f5"
-  style.stroke: "#333333"
-  style.stroke-width: 2
-  style.stroke-dash: 3
-}
-
-# --- Callout: findings categories ---
-
-findings-box: |md
-  Findings (5 categories)
-  - Content Overlap
-  - Trigger Overlap
-  - CLAUDE.md Duplication
-  - Type Misclassification
-  - Structural Issues
-| {
-  shape: rectangle
-  style.fill: "#f5f5f5"
-  style.stroke: "#bbbbbb"
+  style.stroke: "#999999"
   style.stroke-width: 1
-  style.font: mono
-  style.font-size: 10
 }
 
 # --- Callout: report structure ---
 
-report-box: |md
-  harness-report.md
+report-callout: |md
   # Harness Health Report
   ## Inventory
-    Skills: N (~X words)
-    Commands / Hooks / CLAUDE.md
-  ## Findings (per category)
-  ## Suggestions (numbered)
-  ## Notes (approx, informational)
+  - Skills: N (~X words)
+  - Commands / Hooks: N
+  ## Findings
+    Content Overlap
+    Trigger Overlap
+    CLAUDE.md Duplication
+    Type Misclassification
+    Structural Issues
+  ## Suggestions
+  ## Notes
 | {
   shape: rectangle
   style.fill: "#f5f5f5"
@@ -243,35 +238,30 @@ report-box: |md
 
 # --- Flow ---
 
-args -> inventory
-inventory -> single
-
-single -> scan: "multiple"
-single -> gen-report: "single skill\n(skip analysis)" {
+entry -> inventory
+inventory -> inventory-script: "--root ." {
   style.stroke-dash: 3
 }
+inventory -> single-check
 
-scan -> analyze
-analyze -> classify
-classify -> gen-report
-gen-report -> output-summary
-
-output-summary -> eval-analyze: "dive deeper" {
+single-check -> summary: "yes, skip 2-5" {
   style.stroke-dash: 3
 }
-output-summary -> eval-run: "test impact" {
-  style.stroke-dash: 3
-}
+single-check -> read-skills: "no"
 
-# --- Callout connectors ---
+read-skills -> read-claude
+read-claude -> analysis
 
-classify -> findings-box: {
+analysis -> gen-report: "findings"
+gen-report -> summary
+
+gen-report -> report-out
+gen-report -> report-callout: {
   style.stroke: "#bbbbbb"
   style.stroke-dash: 4
   style.stroke-width: 1
 }
-gen-report -> report-box: {
-  style.stroke: "#bbbbbb"
-  style.stroke-dash: 4
-  style.stroke-width: 1
+
+summary -> read-skills: "/eval-analyze\nnext steps" {
+  style.stroke-dash: 3
 }

@@ -10,8 +10,8 @@ direction: right
 args: |md
   **/eval-analyze**
 
-  - --skill \<name\>
-  - --config \<path\>
+  - --skill <name>
+  - --config <path>
   - --update
 | {
   shape: rectangle
@@ -20,7 +20,7 @@ args: |md
   style.stroke-width: 2
 }
 
-# --- Step 0: layout discovery ---
+# --- Setup / discovery ---
 
 discover: |md
   **Discover Layout**
@@ -37,8 +37,6 @@ discover: |md
   style.stroke-width: 2
 }
 
-# --- Step 1: find skill ---
-
 find-skill: |md
   **Find Target Skill**
 
@@ -53,7 +51,7 @@ find-skill: |md
   style.stroke-width: 2
 }
 
-# --- Step 2: freshness check ---
+# --- Freshness decision ---
 
 freshness: |md
   **Freshness Check**
@@ -69,7 +67,7 @@ freshness: |md
   style.stroke-width: 2
 }
 
-# --- Step 3: deep-read (LLM Explore agent) ---
+# --- Deep analysis (LLM) ---
 
 deep-read: |md
   **Deep-Read Skill**
@@ -90,8 +88,6 @@ deep-read: |md
   style.double-border: true
 }
 
-# --- Step 4: explore dataset ---
-
 explore-dataset: |md
   **Explore Dataset**
 
@@ -107,7 +103,7 @@ explore-dataset: |md
   style.stroke-width: 2
 }
 
-# --- Step 5: generate eval.yaml (LLM synthesis) ---
+# --- Generation (LLM) ---
 
 gen-yaml: |md
   **Generate eval.yaml**
@@ -128,7 +124,18 @@ gen-yaml: |md
   style.double-border: true
 }
 
-# --- Step 5b: validate generated config ---
+builtins: |md
+  **Builtin Judges**
+
+  - list_builtins.py
+  - reusable check + LLM
+| {
+  shape: rectangle
+  style.fill: "#e8e8e8"
+  style.stroke: "#333333"
+  style.stroke-width: 2
+  style.stroke-dash: 3
+}
 
 validate: |md
   **Validate Config**
@@ -144,8 +151,6 @@ validate: |md
   style.stroke-width: 2
 }
 
-# --- Step 6: generate eval.md ---
-
 gen-md: |md
   **Generate eval.md**
 
@@ -160,9 +165,9 @@ gen-md: |md
   style.stroke-width: 2
 }
 
-# --- Step 7: report (output) ---
+# --- Output ---
 
-report: |md
+report-out: |md
   **Report (Outputs)**
 
   - eval.yaml created
@@ -177,30 +182,13 @@ report: |md
   style.stroke-width: 2
 }
 
-# --- External: list_builtins helper ---
-
-builtins: |md
-  **Builtin Judges**
-  agent_eval/judges/
-
-  - list_builtins.py
-  - reusable check + LLM
-| {
-  shape: rectangle
-  style.fill: "#e8e8e8"
-  style.stroke: "#333333"
-  style.stroke-width: 2
-  style.stroke-dash: 3
-}
-
-# --- Callout: config layout discovery ---
+# --- Callouts ---
 
 layout-tree: |md
   project/
-    eval.yaml          # root layout
-  # or nested layout:
+  eval.yaml          # root layout
   eval/
-    \<skill-a\>/
+    <skill-a>/
       eval.yaml
       eval.md
       cases/
@@ -217,25 +205,23 @@ layout-tree: |md
   style.font-size: 10
 }
 
-# --- Callout: eval.yaml schema ---
-
 eval-yaml-schema: |md
   eval.yaml
-  ├── skill: \<name\>
-  ├── execution:
-  │   ├── mode: case|batch
-  │   └── arguments: "{field}"
-  ├── runner: {type: claude-code}
-  ├── models: {skill, judge, hook}
-  ├── dataset: {path, schema}
-  ├── inputs: {tools: [match,prompt]}
-  ├── outputs: [{path, schema}]
-  ├── judges:
-  │   ├── builtin: cost_budget
-  │   ├── check: \<python\>
-  │   └── prompt: \<LLM rubric\>
-  └── thresholds:
-      └── {judge: {min_pass_rate}}
+    skill: <name>
+    execution:
+      mode: case|batch
+      arguments: "{field}"
+    runner: {type: claude-code}
+    models: {skill, judge, hook}
+    dataset: {path, schema}
+    inputs: {tools: [match,prompt]}
+    outputs: [{path, schema}]
+    judges:
+      builtin: cost_budget
+      check: <python>
+      prompt: <LLM rubric>
+    thresholds:
+      {judge: {min_pass_rate}}
 | {
   shape: rectangle
   style.fill: "#f5f5f5"
@@ -251,34 +237,31 @@ args -> discover
 discover -> find-skill
 find-skill -> freshness
 
-freshness -> report: "FRESH + COMPLETE" {
+freshness -> report-out: "FRESH + COMPLETE" {
   style.stroke-dash: 3
 }
-
 freshness -> deep-read: "STALE / NO_CONFIG / --update"
+
 deep-read -> explore-dataset
 explore-dataset -> gen-yaml
-gen-yaml -> validate
-
-validate -> gen-yaml: "errors" {
-  style.stroke-dash: 3
-}
-
-validate -> gen-md: "ok"
-gen-md -> report
-
-# Builtin judges feed generation
 builtins -> gen-yaml: "builtin: refs" {
   style.stroke-dash: 3
 }
 
-# Callout connections
+gen-yaml -> validate
+validate -> gen-yaml: errors {
+  style.stroke-dash: 3
+}
+validate -> gen-md: ok
+gen-md -> report-out
+
+# --- Callout connectors ---
+
 discover -> layout-tree: {
   style.stroke: "#bbbbbb"
   style.stroke-dash: 4
   style.stroke-width: 1
 }
-
 gen-yaml -> eval-yaml-schema: {
   style.stroke: "#bbbbbb"
   style.stroke-dash: 4
