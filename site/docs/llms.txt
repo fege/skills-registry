@@ -75,6 +75,7 @@
 - [eval-review](https://opendatahub-io.github.io/skills-registry/plugins/agent-eval-harness/eval-review/): Human-in-the-loop review of scores and outputs with qualitative feedback collection
 - [eval-mlflow](https://opendatahub-io.github.io/skills-registry/plugins/agent-eval-harness/eval-mlflow/): Bidirectional MLflow sync for results, datasets, and feedback
 - [eval-optimize](https://opendatahub-io.github.io/skills-registry/plugins/agent-eval-harness/eval-optimize/): Automated improvement loop that identifies failures, edits SKILL.md, and re-runs with regression checks
+- [eval-check](https://opendatahub-io.github.io/skills-registry/plugins/agent-eval-harness/eval-check/): Full-harness configuration health check — scans skills, commands, CLAUDE.md, and hooks for redundancy, overlap, and structural issues
 - [knowledge.repo](https://opendatahub-io.github.io/skills-registry/plugins/knowledge-skills/knowledge.repo/): Scan merged PRs and propose updates to AI context files (CLAUDE.md, AGENTS.md) as a git-apply-able patch
 - [autofix-resolve](https://opendatahub-io.github.io/skills-registry/plugins/autofix-skills/autofix-resolve/): Orchestrate end-to-end bug fixing via implement and review agent loop (max 3 iterations)
 - [autofix-cve-resolve](https://opendatahub-io.github.io/skills-registry/plugins/autofix-skills/autofix-cve-resolve/): CVE remediation across multiple repos with state-machine dispatch

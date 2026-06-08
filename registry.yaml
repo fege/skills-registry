@@ -373,7 +373,7 @@ plugins:
       iteratively improve agent skills with MLflow support for experiment tracking,
       tracing, and reporting. Schema-driven evaluation via eval.yaml with
       support for inline, LLM-based, and external judges.
-    version: "1.4.0"
+    version: "1.9.1"
     category: evaluation
     scope: generic
     tags: [evaluation, testing, skills, agents, mlflow, optimization, scoring]
@@ -382,7 +382,7 @@ plugins:
     source:
       type: github
       repo: opendatahub-io/agent-eval-harness
-      ref: v1.4.0
+      ref: v1.9.1
     homepage: https://github.com/opendatahub-io/agent-eval-harness
     repository: https://github.com/opendatahub-io/agent-eval-harness
     skills:
@@ -406,6 +406,9 @@ plugins:
         user-invocable: true
       - name: eval-optimize
         description: Automated improvement loop that identifies failures, edits SKILL.md, and re-runs with regression checks
+        user-invocable: true
+      - name: eval-check
+        description: Full-harness configuration health check — scans skills, commands, CLAUDE.md, and hooks for redundancy, overlap, and structural issues
         user-invocable: true
     harnesses:
       claude-code:

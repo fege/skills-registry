@@ -30,4 +30,4 @@ title: Plugins
 | Plugin | Category | Skills | Version |
 |--------|----------|--------|---------|
 | [odh-ai-helpers](odh-ai-helpers/index.md) | Development Tools | 19 | v0.1.0 |
-| [agent-eval-harness](agent-eval-harness/index.md) | Evaluation & Testing | 7 | v1.4.0 |
+| [agent-eval-harness](agent-eval-harness/index.md) | Evaluation & Testing | 8 | v1.9.1 |

@@ -131,6 +131,7 @@ nav:
       - eval-review: plugins/agent-eval-harness/eval-review.md
       - eval-mlflow: plugins/agent-eval-harness/eval-mlflow.md
       - eval-optimize: plugins/agent-eval-harness/eval-optimize.md
+      - eval-check: plugins/agent-eval-harness/eval-check.md
     - knowledge-skills:
       - plugins/knowledge-skills/index.md
       - knowledge.repo: plugins/knowledge-skills/knowledge.repo.md

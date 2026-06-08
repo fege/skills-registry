@@ -81,7 +81,7 @@ Tags: quality, testing, ci-cd, build-validation, analysis
 
 Generic agentic evaluation for skills and agents. Provides end-to-end skills to analyze, test, score, review, and iteratively improve agent skills with MLflow support for experiment tracking, tracing, and reporting. Schema-driven evaluation via eval.yaml with support for inline, LLM-based, and external judges.
 
-v1.4.0 | Generic | [opendatahub-io/agent-eval-harness](https://github.com/opendatahub-io/agent-eval-harness)
+v1.9.1 | Generic | [opendatahub-io/agent-eval-harness](https://github.com/opendatahub-io/agent-eval-harness)
 
 Tags: evaluation, testing, skills, agents, mlflow, optimization, scoring
 
@@ -94,6 +94,7 @@ Tags: evaluation, testing, skills, agents, mlflow, optimization, scoring
 | `/eval-review` | Human-in-the-loop review of scores and outputs with qualitative feedback collection |
 | `/eval-mlflow` | Bidirectional MLflow sync for results, datasets, and feedback |
 | `/eval-optimize` | Automated improvement loop that identifies failures, edits SKILL.md, and re-runs with regression checks |
+| `/eval-check` | Full-harness configuration health check — scans skills, commands, CLAUDE.md, and hooks for redundancy, overlap, and structural issues |
 
 ```bash
 /plugin install agent-eval-harness@opendatahub-skills

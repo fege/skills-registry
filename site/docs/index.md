@@ -10,7 +10,7 @@ hide:
 
 # Skills and plugins for AI-assisted software engineering workflows
 
-13 plugins | 74 skills | 7 categories
+13 plugins | 75 skills | 7 categories
 
 [Getting Started](getting-started.md){ .md-button .md-button--primary }
 
@@ -128,7 +128,7 @@ hide:
 
     Generic agentic evaluation for skills and agents. Provides end-to-end skills to analyze, test, score, review, and ite...
 
-    **7 skills** - Evaluation & Testing - v1.4.0
+    **8 skills** - Evaluation & Testing - v1.9.1
 
 </div>
 
