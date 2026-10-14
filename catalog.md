@@ -71,7 +71,7 @@ Skills for evaluating and testing AI agent skills
 
 Assess RFEs against quality criteria using a structured rubric.
 
-v1.0.0 | [opendatahub-io/assess-rfe](https://github.com/opendatahub-io/assess-rfe)
+v1.0.0 | [fullsend-ai/assess-rfe](https://github.com/fullsend-ai/assess-rfe)
 
 Tags: rfe, rubric, quality, assessment
 
@@ -88,7 +88,7 @@ Tags: rfe, rubric, quality, assessment
 
 Assess RHAISTRAT strategies against quality criteria using a scored rubric with calibration examples. Scores across four dimensions: feasibility, testability, scope, and architecture.
 
-v1.0.0 | [opendatahub-io/assess-strat](https://github.com/opendatahub-io/assess-strat)
+v1.0.0 | [fullsend-ai/assess-strat](https://github.com/fullsend-ai/assess-strat)
 
 Tags: strategy, strat, rubric, quality, assessment
 
@@ -105,20 +105,20 @@ Tags: strategy, strat, rubric, quality, assessment
 
 End-to-end test planning workflow for RHOAI: generate E2E/UI-focused test plans from Jira strategies, create traceable test cases, implement executable automation code, verify UI tests against live clusters via Playwright, publish to GitHub, resolve review feedback, and score plans with deterministic evidence gates and automated rubrics.
 
-v2.0.0 | [opendatahub-io/odh-test-gen](https://github.com/opendatahub-io/odh-test-gen)
+v2.0.0 | [fullsend-ai/odh-test-gen](https://github.com/fullsend-ai/odh-test-gen)
 
 Tags: test-plan, test-cases, quality, strategy, review, scoring, automation, playwright, ui-testing
 
-| Skill | Description |
-|-------|-------------|
-| `/test-plan-create` | Generate a test plan from a strategy |
-| `/test-plan-create-cases` | Generate test case files from a test plan |
-| `/test-plan-update` | Update test plan with new docs (ADR, API specs), re-analyze, bump version |
-| `/test-plan-case-implement` | Generate executable test automation code from TC specifications with intelligent placement |
-| `/test-plan-ui-verify` | Verify UI test cases from a PR against a live ODH/RHOAI cluster via Playwright; supports upgrade testing workflow |
-| `/test-plan-publish` | Publish test plan artifacts to GitHub with PR creation |
-| `/test-plan-resolve-feedback` | Assess and resolve PR review comments on test plans |
-| `/test-plan-score` | Score test plan quality using rubric without auto-revision |
+| Skill | Description | Functions | Metrics |
+|-------|-------------|-----------|---------|
+| `/test-plan-create` | Generate a test plan from a strategy | `plan`, `generate` | `task_success` (`judge`) |
+| `/test-plan-create-cases` | Generate test case files from a test plan | `generate` | `task_success` (`judge`) |
+| `/test-plan-update` | Update test plan with new docs (ADR, API specs), re-analyze, bump version | `transform` | `task_success` (`judge`) |
+| `/test-plan-case-implement` | Generate executable test automation code from TC specifications with intelligent placement | `generate` | `task_success` (`judge`) |
+| `/test-plan-ui-verify` | Verify UI test cases from a PR against a live ODH/RHOAI cluster via Playwright; supports upgrade testing workflow | `verify` | `task_success` (`judge`) |
+| `/test-plan-publish` | Publish test plan artifacts to GitHub with PR creation | `execute` | `task_success` (`deterministic`) |
+| `/test-plan-resolve-feedback` | Assess and resolve PR review comments on test plans | `review`, `transform` | `task_success` (`judge`) |
+| `/test-plan-score` | Score test plan quality using rubric without auto-revision | `review` | `task_success` (`judge`) |
 
 ```bash
 /plugin install test-plan@opendatahub-skills
@@ -148,7 +148,7 @@ Tags: quality, testing, ci-cd, build-validation, analysis
 
 Generic agentic evaluation for skills and agents. Provides end-to-end skills to analyze, test, score, review, and iteratively improve agent skills, plus compare models/configurations and run Design-of-Experiments (ANOVA) sweeps. MLflow support for experiment tracking, tracing, and reporting. Schema-driven evaluation via eval.yaml with support for inline, LLM-based, and external judges.
 
-v1.30.0 | Generic | [opendatahub-io/agent-eval-harness](https://github.com/opendatahub-io/agent-eval-harness)
+v1.30.0 | Generic | [fullsend-ai/agent-eval-harness](https://github.com/fullsend-ai/agent-eval-harness)
 
 Tags: evaluation, testing, skills, agents, mlflow, optimization, scoring, comparison, doe, anova
 
@@ -816,7 +816,7 @@ Skills for requirements, RFEs, and product strategy
 
 Claude Code skills for creating, reviewing, splitting and submitting work items — RFEs to the RHAIRFE Jira project and Initiatives to RHOAIENG — through one generic pipeline (/rfe-create, /rfe-review, /rfe-split, /rfe-submit, /rfe-auto-fix, /rfe-speedrun; --type initiative for Initiatives). The legacy dotted names (/rfe.create and friends) remain as compatibility aliases.
 
-v0.1.0 | [opendatahub-io/rfe-creator](https://github.com/opendatahub-io/rfe-creator)
+v0.1.0 | [fullsend-ai/rfe-creator](https://github.com/fullsend-ai/rfe-creator)
 
 Tags: rfe, initiative, jira, review, pipeline
 
@@ -846,7 +846,7 @@ Claude Code skills for creating, reviewing, and submitting strategies to the RHA
 
 **Requires:** `assess-strat`
 
-v0.1.0 | [opendatahub-io/strat-creator](https://github.com/opendatahub-io/strat-creator)
+v0.1.0 | [fullsend-ai/strat-creator](https://github.com/fullsend-ai/strat-creator)
 
 Tags: strategy, strat, jira, review, pipeline
 
@@ -862,6 +862,22 @@ Tags: strategy, strat, jira, review, pipeline
 
 ```bash
 /plugin install strat-creator@opendatahub-skills
+```
+
+### epic-creator
+
+Decompose RHAISTRAT strategies into implementation epic dependency graphs with adversarial review, bounded revision and AI implementability scoring. Accepts strategy IDs or a JQL query for non-interactive batch processing.
+
+v1.0.0 | [fullsend-ai/epic-creator](https://github.com/fullsend-ai/epic-creator)
+
+Tags: epic, strategy, jira, decomposition, review
+
+| Skill | Description | Functions | Metrics |
+|-------|-------------|-----------|---------|
+| `/epic-decompose` | Decompose batches of RHAISTRAT strategies into implementation epic DAGs. Accepts explicit IDs or a JQL query. Non-interactive. | `plan`, `orchestrate` | `task_success` (`verifier_backed`), `output_quality` (`judge`) |
+
+```bash
+/plugin install epic-creator@opendatahub-skills
 ```
 
 ### spike-executor

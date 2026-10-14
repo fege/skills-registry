@@ -13,7 +13,7 @@
       },
       "category": "planning",
       "description": "Claude Code skills for creating, reviewing, splitting and submitting work items \u2014 RFEs to the RHAIRFE Jira project and Initiatives to RHOAIENG \u2014 through one generic pipeline (/rfe-create, /rfe-review, /rfe-split, /rfe-submit, /rfe-auto-fix, /rfe-speedrun; --type initiative for Initiatives). The legacy dotted names (/rfe.create and friends) remain as compatibility aliases.\n",
-      "homepage": "https://github.com/opendatahub-io/rfe-creator",
+      "homepage": "https://github.com/fullsend-ai/rfe-creator",
       "keywords": [
         "rfe",
         "initiative",
@@ -22,13 +22,13 @@
         "pipeline"
       ],
       "name": "rfe-creator",
-      "repository": "https://github.com/opendatahub-io/rfe-creator",
+      "repository": "https://github.com/fullsend-ai/rfe-creator",
       "skills": [
         "./.claude/skills"
       ],
       "source": {
         "ref": "main",
-        "repo": "opendatahub-io/rfe-creator",
+        "repo": "fullsend-ai/rfe-creator",
         "source": "github"
       },
       "version": "0.1.0"
@@ -39,7 +39,7 @@
       },
       "category": "planning",
       "description": "Claude Code skills for creating, reviewing, and submitting strategies to the RHAISTRAT Jira project. Provides an automated pipeline from initial creation through refinement, adversarial review with independent reviewers, and human sign-off workflow with pull/push/signoff gates.\n",
-      "homepage": "https://github.com/opendatahub-io/strat-creator",
+      "homepage": "https://github.com/fullsend-ai/strat-creator",
       "keywords": [
         "strategy",
         "strat",
@@ -48,13 +48,13 @@
         "pipeline"
       ],
       "name": "strat-creator",
-      "repository": "https://github.com/opendatahub-io/strat-creator",
+      "repository": "https://github.com/fullsend-ai/strat-creator",
       "skills": [
         "./.claude/skills"
       ],
       "source": {
         "ref": "main",
-        "repo": "opendatahub-io/strat-creator",
+        "repo": "fullsend-ai/strat-creator",
         "source": "github"
       },
       "strict": false,
@@ -62,11 +62,34 @@
     },
     {
       "author": {
+        "name": "Jessica Forrester"
+      },
+      "category": "planning",
+      "description": "Decompose RHAISTRAT strategies into implementation epic dependency graphs with adversarial review, bounded revision and AI implementability scoring. Accepts strategy IDs or a JQL query for non-interactive batch processing.",
+      "homepage": "https://github.com/fullsend-ai/epic-creator",
+      "keywords": [
+        "epic",
+        "strategy",
+        "jira",
+        "decomposition",
+        "review"
+      ],
+      "name": "epic-creator",
+      "repository": "https://github.com/fullsend-ai/epic-creator",
+      "source": {
+        "ref": "main",
+        "repo": "fullsend-ai/epic-creator",
+        "source": "github"
+      },
+      "version": "1.0.0"
+    },
+    {
+      "author": {
         "name": "Jason Greene"
       },
       "category": "evaluation",
       "description": "Assess RFEs against quality criteria using a structured rubric.\n",
-      "homepage": "https://github.com/opendatahub-io/assess-rfe",
+      "homepage": "https://github.com/fullsend-ai/assess-rfe",
       "keywords": [
         "rfe",
         "rubric",
@@ -74,10 +97,10 @@
         "assessment"
       ],
       "name": "assess-rfe",
-      "repository": "https://github.com/opendatahub-io/assess-rfe",
+      "repository": "https://github.com/fullsend-ai/assess-rfe",
       "source": {
         "ref": "main",
-        "repo": "opendatahub-io/assess-rfe",
+        "repo": "fullsend-ai/assess-rfe",
         "source": "github"
       },
       "version": "1.0.0"
@@ -88,7 +111,7 @@
       },
       "category": "evaluation",
       "description": "Assess RHAISTRAT strategies against quality criteria using a scored rubric with calibration examples. Scores across four dimensions: feasibility, testability, scope, and architecture.\n",
-      "homepage": "https://github.com/opendatahub-io/assess-strat",
+      "homepage": "https://github.com/fullsend-ai/assess-strat",
       "keywords": [
         "strategy",
         "strat",
@@ -97,10 +120,10 @@
         "assessment"
       ],
       "name": "assess-strat",
-      "repository": "https://github.com/opendatahub-io/assess-strat",
+      "repository": "https://github.com/fullsend-ai/assess-strat",
       "source": {
         "ref": "main",
-        "repo": "opendatahub-io/assess-strat",
+        "repo": "fullsend-ai/assess-strat",
         "source": "github"
       },
       "version": "1.0.0"
@@ -140,7 +163,7 @@
       },
       "category": "evaluation",
       "description": "End-to-end test planning workflow for RHOAI: generate E2E/UI-focused test plans from Jira strategies, create traceable test cases, implement executable automation code, verify UI tests against live clusters via Playwright, publish to GitHub, resolve review feedback, and score plans with deterministic evidence gates and automated rubrics.\n",
-      "homepage": "https://github.com/opendatahub-io/odh-test-gen",
+      "homepage": "https://github.com/fullsend-ai/odh-test-gen",
       "keywords": [
         "test-plan",
         "test-cases",
@@ -153,10 +176,10 @@
         "ui-testing"
       ],
       "name": "test-plan",
-      "repository": "https://github.com/opendatahub-io/odh-test-gen",
+      "repository": "https://github.com/fullsend-ai/odh-test-gen",
       "source": {
         "ref": "main",
-        "repo": "opendatahub-io/odh-test-gen",
+        "repo": "fullsend-ai/odh-test-gen",
         "source": "github"
       },
       "version": "2.0.0"
@@ -596,7 +619,7 @@
       },
       "category": "evaluation",
       "description": "Generic agentic evaluation for skills and agents. Provides end-to-end skills to analyze, test, score, review, and iteratively improve agent skills, plus compare models/configurations and run Design-of-Experiments (ANOVA) sweeps. MLflow support for experiment tracking, tracing, and reporting. Schema-driven evaluation via eval.yaml with support for inline, LLM-based, and external judges.\n",
-      "homepage": "https://github.com/opendatahub-io/agent-eval-harness",
+      "homepage": "https://github.com/fullsend-ai/agent-eval-harness",
       "keywords": [
         "evaluation",
         "testing",
@@ -610,10 +633,10 @@
         "anova"
       ],
       "name": "agent-eval-harness",
-      "repository": "https://github.com/opendatahub-io/agent-eval-harness",
+      "repository": "https://github.com/fullsend-ai/agent-eval-harness",
       "source": {
         "ref": "v1.30.0",
-        "repo": "opendatahub-io/agent-eval-harness",
+        "repo": "fullsend-ai/agent-eval-harness",
         "source": "github"
       },
       "version": "1.30.0"

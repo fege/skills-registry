@@ -32,7 +32,7 @@ automatically on first use.
     - **Version**: 0.1.0
     - **Author**: jwforres
     - **Category**: [Product Planning](../../categories/planning.md)
-    - **Repository**: [opendatahub-io/rfe-creator](https://github.com/opendatahub-io/rfe-creator)
+    - **Repository**: [fullsend-ai/rfe-creator](https://github.com/fullsend-ai/rfe-creator)
     - **Tags**: <span class="tag-pill">rfe</span> <span class="tag-pill">initiative</span> <span class="tag-pill">jira</span> <span class="tag-pill">review</span> <span class="tag-pill">pipeline</span>
 
 ## Pipeline

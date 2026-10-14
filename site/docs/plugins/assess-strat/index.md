@@ -14,7 +14,7 @@ Assess RHAISTRAT strategies against quality criteria using a scored rubric with 
     - **Version**: 1.0.0
     - **Author**: Eder Ignatowicz
     - **Category**: [Evaluation & Testing](../../categories/evaluation.md)
-    - **Repository**: [opendatahub-io/assess-strat](https://github.com/opendatahub-io/assess-strat)
+    - **Repository**: [fullsend-ai/assess-strat](https://github.com/fullsend-ai/assess-strat)
     - **Tags**: <span class="tag-pill">strategy</span> <span class="tag-pill">strat</span> <span class="tag-pill">rubric</span> <span class="tag-pill">quality</span> <span class="tag-pill">assessment</span>
 
 ## Skills

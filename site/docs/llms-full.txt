@@ -25,7 +25,7 @@ the REST API. Long-running orchestrators persist state to `tmp/` via
 on the `assess-rfe` plugin provides the scoring rubric, bootstrapped
 automatically on first use.
 
-**Repository**: https://github.com/opendatahub-io/rfe-creator
+**Repository**: https://github.com/fullsend-ai/rfe-creator
 
 ### Architecture
 
@@ -324,7 +324,7 @@ verbatim and human-authored input is never overwritten. Jira access works throug
 Atlassian MCP server when available, falling back to a REST API script driven by
 `JIRA_SERVER`/`JIRA_USER`/`JIRA_TOKEN` environment variables.
 
-**Repository**: https://github.com/opendatahub-io/strat-creator
+**Repository**: https://github.com/fullsend-ai/strat-creator
 
 ### Architecture
 
@@ -638,6 +638,20 @@ Examples:
 
 ---
 
+## epic-creator
+
+Decompose RHAISTRAT strategies into implementation epic dependency graphs with adversarial review, bounded revision and AI implementability scoring. Accepts strategy IDs or a JQL query for non-interactive batch processing.
+
+**Repository**: https://github.com/fullsend-ai/epic-creator
+
+### Skills
+
+#### /epic-decompose
+
+Decompose batches of RHAISTRAT strategies into implementation epic DAGs. Accepts explicit IDs or a JQL query. Non-interactive.
+
+---
+
 ## assess-rfe
 
 Structured quality assessment for RFEs (Requests for Enhancement) against
@@ -662,7 +676,7 @@ detailed calibration examples for each criterion and a comprehensive list of
 established RHOAI platform technologies that are considered vocabulary rather
 than architecture prescription.
 
-**Repository**: https://github.com/opendatahub-io/assess-rfe
+**Repository**: https://github.com/fullsend-ai/assess-rfe
 
 ### Architecture
 
@@ -733,7 +747,7 @@ Examples:
 
 Assess RHAISTRAT strategies against quality criteria using a scored rubric with calibration examples. Scores across four dimensions: feasibility, testability, scope, and architecture.
 
-**Repository**: https://github.com/opendatahub-io/assess-strat
+**Repository**: https://github.com/fullsend-ai/assess-strat
 
 ### Skills
 
@@ -892,7 +906,7 @@ against live clusters via Playwright. Test code generation uses odh-test-context
 repo-specific conventions, Tiger Team pattern guides, and intelligent placement analysis
 to decide whether tests belong in the component repo or downstream E2E repo.
 
-**Repository**: https://github.com/opendatahub-io/odh-test-gen
+**Repository**: https://github.com/fullsend-ai/odh-test-gen
 
 ### Architecture
 
@@ -2245,7 +2259,7 @@ OpenShift AI via a custom provider adapter (FrameworkAdapter from eval-hub-sdk),
 supporting S3-hosted datasets, eval.yaml-to-provider translation, and
 containerized (UBI9) execution.
 
-**Repository**: https://github.com/opendatahub-io/agent-eval-harness
+**Repository**: https://github.com/fullsend-ai/agent-eval-harness
 
 ### Architecture
 

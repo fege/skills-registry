@@ -35,7 +35,7 @@ Atlassian MCP server when available, falling back to a REST API script driven by
     - **Version**: 0.1.0
     - **Author**: Eder Ignatowicz
     - **Category**: [Product Planning](../../categories/planning.md)
-    - **Repository**: [opendatahub-io/strat-creator](https://github.com/opendatahub-io/strat-creator)
+    - **Repository**: [fullsend-ai/strat-creator](https://github.com/fullsend-ai/strat-creator)
     - **Tags**: <span class="tag-pill">strategy</span> <span class="tag-pill">strat</span> <span class="tag-pill">jira</span> <span class="tag-pill">review</span> <span class="tag-pill">pipeline</span>
 
 ## Pipeline

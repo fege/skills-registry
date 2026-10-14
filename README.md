@@ -66,7 +66,7 @@ Other platforms (Cursor, Gemini CLI, OpenCode) do not have a marketplace aggrega
 #### Gemini CLI
 
 ```bash
-gemini extensions install https://github.com/opendatahub-io/assess-rfe
+gemini extensions install https://github.com/fullsend-ai/assess-rfe
 ```
 
 #### OpenCode
@@ -75,14 +75,14 @@ Add to your `opencode.json`:
 
 ```json
 {
-  "plugin": ["assess-rfe@git+https://github.com/opendatahub-io/assess-rfe.git"]
+  "plugin": ["assess-rfe@git+https://github.com/fullsend-ai/assess-rfe.git"]
 }
 ```
 
 #### Cursor
 
 ```
-/add-plugin https://github.com/opendatahub-io/assess-rfe
+/add-plugin https://github.com/fullsend-ai/assess-rfe
 ```
 
 Replace the repo URL with the plugin you want to install. See [catalog.md](catalog.md) for the full list of plugins and their source repositories.

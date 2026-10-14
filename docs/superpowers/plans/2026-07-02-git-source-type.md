@@ -34,8 +34,8 @@ from scripts.registry_contracts import (
 
 class SourceHelperTests(unittest.TestCase):
     def test_source_clone_url_github(self):
-        source = {"type": "github", "repo": "opendatahub-io/rfe-creator"}
-        self.assertEqual("https://github.com/opendatahub-io/rfe-creator.git", source_clone_url(source))
+        source = {"type": "github", "repo": "fullsend-ai/rfe-creator"}
+        self.assertEqual("https://github.com/fullsend-ai/rfe-creator.git", source_clone_url(source))
 
     def test_source_clone_url_git(self):
         source = {"type": "git", "url": "https://gitlab.corp.example.com/team/my-plugin.git"}
@@ -46,8 +46,8 @@ class SourceHelperTests(unittest.TestCase):
             source_clone_url({"type": "npm", "repo": "foo"})
 
     def test_source_display_name_github(self):
-        source = {"type": "github", "repo": "opendatahub-io/rfe-creator"}
-        self.assertEqual("opendatahub-io/rfe-creator", source_display_name(source))
+        source = {"type": "github", "repo": "fullsend-ai/rfe-creator"}
+        self.assertEqual("fullsend-ai/rfe-creator", source_display_name(source))
 
     def test_source_display_name_git_strips_scheme_and_dotgit(self):
         source = {"type": "git", "url": "https://gitlab.corp.example.com/team/my-plugin.git"}
@@ -58,8 +58,8 @@ class SourceHelperTests(unittest.TestCase):
         self.assertEqual("gitlab.corp.example.com/team/my-plugin", source_display_name(source))
 
     def test_source_browse_url_github(self):
-        source = {"type": "github", "repo": "opendatahub-io/rfe-creator"}
-        self.assertEqual("https://github.com/opendatahub-io/rfe-creator", source_browse_url(source))
+        source = {"type": "github", "repo": "fullsend-ai/rfe-creator"}
+        self.assertEqual("https://github.com/fullsend-ai/rfe-creator", source_browse_url(source))
 
     def test_source_browse_url_git_strips_dotgit(self):
         source = {"type": "git", "url": "https://gitlab.corp.example.com/team/my-plugin.git"}

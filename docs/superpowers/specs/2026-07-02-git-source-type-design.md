@@ -80,7 +80,7 @@ Add to `registry_contracts.py`:
 
 For use in catalogs, site pages, and log messages.
 
-- `github` -> `repo` as-is (e.g. `opendatahub-io/rfe-creator`)
+- `github` -> `repo` as-is (e.g. `fullsend-ai/rfe-creator`)
 - `git` -> strip scheme and trailing `.git` from `url`
   (e.g. `https://gitlab.corp.example.com/team/my-plugin.git`
   -> `gitlab.corp.example.com/team/my-plugin`)

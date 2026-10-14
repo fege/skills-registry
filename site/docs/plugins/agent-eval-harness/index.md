@@ -40,7 +40,7 @@ containerized (UBI9) execution.
     - **Author**: Antonin Stefanutti
     - **Scope**: Generic
     - **Category**: [Evaluation & Testing](../../categories/evaluation.md)
-    - **Repository**: [opendatahub-io/agent-eval-harness](https://github.com/opendatahub-io/agent-eval-harness)
+    - **Repository**: [fullsend-ai/agent-eval-harness](https://github.com/fullsend-ai/agent-eval-harness)
     - **Tags**: <span class="tag-pill">evaluation</span> <span class="tag-pill">testing</span> <span class="tag-pill">skills</span> <span class="tag-pill">agents</span> <span class="tag-pill">mlflow</span> <span class="tag-pill">optimization</span> <span class="tag-pill">scoring</span> <span class="tag-pill">comparison</span> <span class="tag-pill">doe</span> <span class="tag-pill">anova</span>
 
 ## Pipeline

@@ -14,7 +14,7 @@
       "source": {
         "ref": "main",
         "source": "url",
-        "url": "https://github.com/opendatahub-io/rfe-creator.git"
+        "url": "https://github.com/fullsend-ai/rfe-creator.git"
       }
     },
     {
@@ -27,7 +27,20 @@
       "source": {
         "ref": "main",
         "source": "url",
-        "url": "https://github.com/opendatahub-io/strat-creator.git"
+        "url": "https://github.com/fullsend-ai/strat-creator.git"
+      }
+    },
+    {
+      "category": "Product Planning",
+      "name": "epic-creator",
+      "policy": {
+        "authentication": "ON_INSTALL",
+        "installation": "AVAILABLE"
+      },
+      "source": {
+        "ref": "main",
+        "source": "url",
+        "url": "https://github.com/fullsend-ai/epic-creator.git"
       }
     },
     {
@@ -40,7 +53,7 @@
       "source": {
         "ref": "main",
         "source": "url",
-        "url": "https://github.com/opendatahub-io/assess-rfe.git"
+        "url": "https://github.com/fullsend-ai/assess-rfe.git"
       }
     },
     {
@@ -53,7 +66,7 @@
       "source": {
         "ref": "main",
         "source": "url",
-        "url": "https://github.com/opendatahub-io/assess-strat.git"
+        "url": "https://github.com/fullsend-ai/assess-strat.git"
       }
     },
     {
@@ -79,7 +92,7 @@
       "source": {
         "ref": "main",
         "source": "url",
-        "url": "https://github.com/opendatahub-io/odh-test-gen.git"
+        "url": "https://github.com/fullsend-ai/odh-test-gen.git"
       }
     },
     {
@@ -342,7 +355,7 @@
       "source": {
         "ref": "v1.30.0",
         "source": "url",
-        "url": "https://github.com/opendatahub-io/agent-eval-harness.git"
+        "url": "https://github.com/fullsend-ai/agent-eval-harness.git"
       }
     },
     {

@@ -57,7 +57,7 @@ Plugins whose skills live outside the default `skills/` (typically `.claude/skil
 - `strict: true` (default): the repo's `plugin.json` is authoritative and the entry's `skills` (from `skills_dir`) are appended to it — a directory listed by both loads once
 - `strict: false`: the entry is the entire plugin; if the repo also ships a `plugin.json` that declares components, the plugin **fails to load** ("conflicting manifests")
 
-So a plugin that is about to add a manifest flips its entry to `strict: true` **before** the manifest lands (rfe-creator did this for opendatahub-io/rfe-creator#206). The schema enforces that `skills_dir` comes with an explicit `strict` (`dependentRequired`), and the validation script checks the same.
+So a plugin that is about to add a manifest flips its entry to `strict: true` **before** the manifest lands (rfe-creator did this for fullsend-ai/rfe-creator#206). The schema enforces that `skills_dir` comes with an explicit `strict` (`dependentRequired`), and the validation script checks the same.
 
 ### Marketplace JSON format
 

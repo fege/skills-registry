@@ -91,7 +91,7 @@ that contains the actual skills:
  ┌──────────────┐
  │ plugins:     │
  │              │        ┌────────────────────────────────┐
- │  rfe-creator ├───────►│ opendatahub-io/rfe-creator     │
+ │  rfe-creator ├───────►│ fullsend-ai/rfe-creator        │
  │              │        │  └─ .claude/skills/            │
  │              │        │      ├─ rfe.create/SKILL.md    │
  │              │        │      ├─ rfe.review/SKILL.md    │
@@ -99,7 +99,7 @@ that contains the actual skills:
  │              │        └────────────────────────────────┘
  │              │
  │              │        ┌────────────────────────────────┐
- │  assess-rfe  ├───────►│ opendatahub-io/assess-rfe      │
+ │  assess-rfe  ├───────►│ fullsend-ai/assess-rfe         │
  │  (strict:    │        │  ├─ .claude-plugin/            │
  │   true)      │        │  │   └─ plugin.json            │
  │              │        │  └─ skills/                    │
